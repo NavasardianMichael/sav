@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
 import axios from 'axios';
+import './App.css';
 
 function App() {
 
@@ -27,13 +26,23 @@ function App() {
 
   useEffect(() => {
     
-    h() 
+    h();
+  //   console.log('Sending Email');
+    
+  //   (Email).send({
+  //     SecureToken : "1079d3ca-af94-427f-842c-8e2846b7084f",
+  //     To : 'navasardianmichael2@gmail.com',
+  //     From : "navasardianmichael@gmail.com",
+  //     Subject : "Project Submission Pending",
+  //     Body : "Hi, I would like to ask your name?"
+  // }).then(
+  //   (message: any) => alert(message)
+  // ); 
   }, [])
 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
