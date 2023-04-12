@@ -1,3 +1,4 @@
+import { T_Category } from "store/categories/types"
 import { SET_PRODUCTS } from "./actionTypes"
 
 export type T_ProductsState = {
@@ -16,7 +17,7 @@ export type T_Product = {
 
 export type T_SetProducts = (products: T_ProductsState) => ({
     type: typeof SET_PRODUCTS
-    paylooad: typeof products
+    payload: { products: typeof products }
 })
 
 export type T_ProductsActions = ReturnType<T_SetProducts>

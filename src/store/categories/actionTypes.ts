@@ -1,0 +1,1 @@
+export const SET_CATEGORIES = 'CATEGORIES/SET_CATEGORIES' as const

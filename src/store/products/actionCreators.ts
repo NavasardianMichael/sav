@@ -1,24 +1,35 @@
 import axios from "axios";
-import { AppDispatch } from "../..";
+import { RootState } from "index";
+import { AnyAction } from "redux";
+import { ThunkAction, ThunkDispatch } from "redux-thunk";
+import { SET_PRODUCTS } from "./actionTypes";
+import { T_ProductsState, T_SetProducts } from "./types";
+import { getSheetData } from "api/sheets";
 
-export const fetchProducts = () => {
-    return async function(dispatch: AppDispatch) {
-        const API_KEY = 'AIzaSyAhLyZg8ffyLElsSCSUEBl3h_1rUOfJxOs';
-        const SHEET_ID = '1MoSooZLP1E3DQbLFWg9XRt7PGUmSdFGvObvOiRtqITw';
-        const RANGE = 'A1:N100';
-        
-        try {
-          const response = await axios.get(
-            `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}/?key=${API_KEY}`
-          );
-        
-          // The data is returned as an array of arrays
-          const data = response;
-        
-          // Use the data as needed
-          console.log(data);
-        } catch (error) {
-          console.error(error);
-        }
+const setProducts: T_SetProducts = (products) => ({
+  type: SET_PRODUCTS,
+  payload: { products }
+})
+
+export const fetchProducts = (): ThunkAction<
+  void,
+  RootState,
+  null,
+  AnyAction
+> => {
+  return async (dispatch: ThunkDispatch<RootState, null, AnyAction>) => {
+    try {
+      const response = await getSheetData('products')
+    
+      // The data is returned as an array of arrays
+      const data = response;
+    console.log({response});
+    
+      // Use the data as needed
+      console.log(data);
+      // dispatch(setProducts(data))
+    } catch (error) {
+      console.error(error);
     }
-}
+  };
+};

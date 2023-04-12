@@ -1,3 +1,4 @@
+import { SET_PRODUCTS } from "./actionTypes";
 import { T_ProductsActions, T_ProductsState } from "./types";
 
 const initialState: T_ProductsState = {
@@ -10,8 +11,11 @@ export const productsReducer = (
     action: T_ProductsActions
 ) => {
     switch (action.type) {
-        // case value:
-        //     return state
+        case SET_PRODUCTS:
+            return {
+                ...state,
+                ...action.payload.products
+            }
         default:
             return state
     }

@@ -1,25 +1,28 @@
 import ReactDOM from 'react-dom/client';
-import App from './App';
-import './index.css';
-import { combineReducers, createStore } from 'redux';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
+import thunk, { ThunkMiddleware } from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { productsReducer } from './store/products/reducer';
+import App from './App';
+import './index.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-const store = createStore(
-  combineReducers({
-    products: productsReducer
-  })
-)
+const reducers = combineReducers({
+  products: productsReducer
+})
 
-root.render(
-  <Provider store={store}>
+const store = createStore(
+  reducers,
+  applyMiddleware(thunk as ThunkMiddleware<RootState>)
+  )
+  
+  root.render(
+    <Provider store={store}>
     <App />
   </Provider>
 );
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof reducers>

@@ -1,32 +1,33 @@
 import { useEffect } from 'react';
-import axios from 'axios';
+import { fetchProducts } from 'store/products/actionCreators';
 import './App.css';
+import { useAppDispatch } from 'hooks/useAppDispatch';
 
 function App() {
+  const dispatch = useAppDispatch()
 
-  const h = async () => {
-    const API_KEY = 'AIzaSyAhLyZg8ffyLElsSCSUEBl3h_1rUOfJxOs';
-    const SHEET_ID = '1MoSooZLP1E3DQbLFWg9XRt7PGUmSdFGvObvOiRtqITw';
-    const RANGE = 'A1:N100';
+  // const h = async () => {
+  //   const API_KEY = 'AIzaSyAhLyZg8ffyLElsSCSUEBl3h_1rUOfJxOs';
+  //   const SHEET_ID = '1kzib4BJvRTO4uU830dlC2av4po5jySYz0D9yG2Orqoo';
+  //   const RANGE = 'products!A1:N100';
     
-    try {
-      const response = await axios.get(
-        `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}/?key=${API_KEY}`
-      );
+  //   try {
+  //     const response = await axios.get(
+  //       `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}/?key=${API_KEY}`
+  //     );
     
-      // The data is returned as an array of arrays
-      const data = response;
+  //     // The data is returned as an array of arrays
+  //     const data = response;
     
-      // Use the data as needed
-      console.log(data);
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  //     // Use the data as needed
+  //     console.log(data.data.values);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
 
   useEffect(() => {
-    
-    h();
+    dispatch(fetchProducts())
   //   console.log('Sending Email');
     
   //   (Email).send({
@@ -38,7 +39,7 @@ function App() {
   // }).then(
   //   (message: any) => alert(message)
   // ); 
-  }, [])
+  }, [dispatch])
 
   return (
     <div className="App">
