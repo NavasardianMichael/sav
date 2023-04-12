@@ -1,10 +1,11 @@
-import axios from "axios";
+import { fetchDataBySheetName } from "api/sheets/api";
 import { RootState } from "index";
 import { AnyAction } from "redux";
 import { ThunkAction, ThunkDispatch } from "redux-thunk";
 import { SET_PRODUCTS } from "./actionTypes";
-import { T_ProductsState, T_SetProducts } from "./types";
-import { getSheetData } from "api/sheets";
+import { T_SetProducts } from "./types";
+import { G_SheetResponse, T_ProductResponse } from "api/sheets/types";
+import { processSheetData } from "store/products/processors";
 
 const setProducts: T_SetProducts = (products) => ({
   type: SET_PRODUCTS,
@@ -19,15 +20,13 @@ export const fetchProducts = (): ThunkAction<
 > => {
   return async (dispatch: ThunkDispatch<RootState, null, AnyAction>) => {
     try {
-      const response = await getSheetData('products')
-    
+      const response = await fetchDataBySheetName<G_SheetResponse<T_ProductResponse[]>>('products')
+      const data = processSheetData(response.values)
       // The data is returned as an array of arrays
-      const data = response;
-    console.log({response});
     
       // Use the data as needed
-      console.log(data);
-      // dispatch(setProducts(data))
+      console.log({data});
+      dispatch(setProducts(data))
     } catch (error) {
       console.error(error);
     }

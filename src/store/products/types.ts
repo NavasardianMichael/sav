@@ -12,6 +12,7 @@ export type T_Product = {
     id: string
     name: string
     price: number
+    imageUrl: string
     categoryId: T_Category['id']
 }
 

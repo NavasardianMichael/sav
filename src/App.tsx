@@ -2,29 +2,13 @@ import { useEffect } from 'react';
 import { fetchProducts } from 'store/products/actionCreators';
 import './App.css';
 import { useAppDispatch } from 'hooks/useAppDispatch';
+import { useSelector } from 'react-redux';
+import { selectProducts } from 'store/products/selectors';
 
 function App() {
   const dispatch = useAppDispatch()
-
-  // const h = async () => {
-  //   const API_KEY = 'AIzaSyAhLyZg8ffyLElsSCSUEBl3h_1rUOfJxOs';
-  //   const SHEET_ID = '1kzib4BJvRTO4uU830dlC2av4po5jySYz0D9yG2Orqoo';
-  //   const RANGE = 'products!A1:N100';
-    
-  //   try {
-  //     const response = await axios.get(
-  //       `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}/?key=${API_KEY}`
-  //     );
-    
-  //     // The data is returned as an array of arrays
-  //     const data = response;
-    
-  //     // Use the data as needed
-  //     console.log(data.data.values);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
+  const products = useSelector(selectProducts)
+console.log({products})
 
   useEffect(() => {
     dispatch(fetchProducts())
