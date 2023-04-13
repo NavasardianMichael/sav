@@ -7,12 +7,16 @@ import { selectProducts } from 'store/products/selectors';
 import { fetchCategories } from 'store/categories/actionCreators';
 import { selectCategories } from 'store/categories/selectors';
 import { sendEmail } from 'api/email/api';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { Header } from 'components/Header/Main';
+import { Home } from 'pages/Home';
+import { Contact } from 'pages/Contact';
+import { About } from 'pages/About';
 
 function App() {
   const dispatch = useAppDispatch()
   const products = useSelector(selectProducts)
   const categories = useSelector(selectCategories)
-console.log({products, categories})
 
   useEffect(() => {
     dispatch(fetchProducts())
@@ -23,19 +27,15 @@ console.log({products, categories})
 
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/about' element={<About />} />
+          <Route path='*' element={<Navigate to='/' replace />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
