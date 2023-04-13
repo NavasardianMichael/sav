@@ -5,19 +5,21 @@ import { Provider } from 'react-redux';
 import { productsReducer } from './store/products/reducer';
 import App from './App';
 import './index.css';
+import { categoriesReducer } from 'store/categories/reducer';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
 const reducers = combineReducers({
-  products: productsReducer
+  products: productsReducer,
+  categories: categoriesReducer
 })
 
 const store = createStore(
   reducers,
   applyMiddleware(thunk as ThunkMiddleware<RootState>)
-  )
+)
   
   root.render(
     <Provider store={store}>

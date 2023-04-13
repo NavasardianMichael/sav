@@ -4,25 +4,21 @@ import './App.css';
 import { useAppDispatch } from 'hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { selectProducts } from 'store/products/selectors';
+import { fetchCategories } from 'store/categories/actionCreators';
+import { selectCategories } from 'store/categories/selectors';
+import { sendEmail } from 'api/email/api';
 
 function App() {
   const dispatch = useAppDispatch()
   const products = useSelector(selectProducts)
-console.log({products})
+  const categories = useSelector(selectCategories)
+console.log({products, categories})
 
   useEffect(() => {
     dispatch(fetchProducts())
-  //   console.log('Sending Email');
+    dispatch(fetchCategories())
     
-  //   (Email).send({
-  //     SecureToken : "1079d3ca-af94-427f-842c-8e2846b7084f",
-  //     To : 'navasardianmichael2@gmail.com',
-  //     From : "navasardianmichael@gmail.com",
-  //     Subject : "Project Submission Pending",
-  //     Body : "Hi, I would like to ask your name?"
-  // }).then(
-  //   (message: any) => alert(message)
-  // ); 
+    // sendEmail('<div><button>click me</button><h2>TITLE HERE</h2><div>')
   }, [dispatch])
 
   return (

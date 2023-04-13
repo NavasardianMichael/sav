@@ -1,9 +1,9 @@
 import { G_NormalizedState } from "helpers/types";
 import { T_SheetRowResponse } from "../../api/sheets/types";
-import { T_Product, T_ProductsState } from "store/products/types";
+import { T_CategoriesState, T_Category } from "./types";
 
-export const processProductsData = (data: T_SheetRowResponse[]): G_NormalizedState<T_Product> => {
-    let result: T_ProductsState = {
+export const processCategoriesData = (data: T_SheetRowResponse[]): G_NormalizedState<T_Category> => {
+    let result: T_CategoriesState = {
         byId: {},
         allIds: []
     }
@@ -19,13 +19,10 @@ export const processProductsData = (data: T_SheetRowResponse[]): G_NormalizedSta
     return result
 }
 
-const processSheetRow = (data: T_SheetRowResponse): T_Product => {
-    const [id, name, price, imageUrl, categoryId] = data
+const processSheetRow = (data: T_SheetRowResponse): T_Category => {
+    const [id, name] = data
     return {
         id,
         name,
-        price: +price,
-        imageUrl,
-        categoryId
     }    
 }
