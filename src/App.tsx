@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 import { selectProducts } from 'store/products/selectors';
 import { fetchCategories } from 'store/categories/actionCreators';
 import { selectCategories } from 'store/categories/selectors';
-import { sendEmail } from 'api/email/api';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { Header } from 'components/Header/Main';
 import { Home } from 'pages/Home';

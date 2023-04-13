@@ -6,6 +6,7 @@ import { AnyAction } from "redux";
 import { fetchDataBySheetName } from "api/sheets/api";
 import { G_SheetResponse, T_SheetRowResponse } from "api/sheets/types";
 import { processCategoriesData } from "./processors";
+import { setAppearanceOptions } from "store/appearance/actionCreators";
 
 export const setCategories: T_SetCategories = (categories) => {
   return {
@@ -22,11 +23,15 @@ export const fetchCategories = (): ThunkAction<
 > => {
   return async (dispatch: ThunkDispatch<RootState, null, AnyAction>) => {
     try {
+      dispatch(setAppearanceOptions({isFetchingMainData: true}))
+
       const response = await fetchDataBySheetName<G_SheetResponse<T_SheetRowResponse[]>>('categories')
       const data = processCategoriesData(response.values)
       dispatch(setCategories(data))
     } catch (error) {
       console.error(error);
+    } finally {
+      dispatch(setAppearanceOptions({isFetchingMainData: false}))
     }
   };
 };

@@ -3,9 +3,9 @@ import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunk, { ThunkMiddleware } from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { productsReducer } from './store/products/reducer';
-import App from './App';
-import './index.css';
 import { categoriesReducer } from 'store/categories/reducer';
+import { appearanceReducer } from 'store/appearance/reducer';
+import App from './App';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -13,7 +13,8 @@ const root = ReactDOM.createRoot(
 
 const reducers = combineReducers({
   products: productsReducer,
-  categories: categoriesReducer
+  categories: categoriesReducer,
+  appearance: appearanceReducer
 })
 
 const store = createStore(
