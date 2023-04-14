@@ -1,8 +1,8 @@
 import { FC } from "react";
-import {ReactComponent as LoaderSvg} from 'assets/images/loader.svg'
-import styles from './styles.module.css';
+import { ReactComponent as LoaderSvg } from 'assets/images/loader.svg'
 import { useSelector } from "react-redux";
 import { selectAppearanceOptions } from "store/appearance/selectors";
+import styles from './styles.module.css';
 
 export const Loader: FC = () => {
 

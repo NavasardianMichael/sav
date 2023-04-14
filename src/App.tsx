@@ -10,6 +10,7 @@ import { selectCategories } from 'store/categories/selectors';
 import { fetchProducts } from 'store/products/actionCreators';
 import { selectProducts } from 'store/products/selectors';
 import './App.css';
+import { Chat } from 'components/Chat/Main';
 
 function App() {
   const dispatch = useAppDispatch()
@@ -28,6 +29,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Content />
+        <Chat />
         <Loader />
       </BrowserRouter>
     </div>

@@ -1,12 +1,17 @@
 export const PAGE_NAVIGATIONS = [
     {
         id: 1,
-        name: 'About',
-        path: 'about'
+        name: 'Home',
+        path: '/'
     },
     {
         id: 2,
-        name: 'Contact',
+        name: 'О нас',
+        path: 'about'
+    },
+    {
+        id: 3,
+        name: 'Обратная свазь',
         path: 'contact'
     },
 ]

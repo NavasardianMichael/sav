@@ -1,0 +1,43 @@
+import { FC, MouseEventHandler, useCallback, useEffect, useRef, useState } from "react";
+import QuestionAnswerRoundedIcon from '@mui/icons-material/QuestionAnswerRounded';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import styles from './styles.module.css';
+import { Form } from "./Form";
+
+export const Chat: FC = () => {
+
+    const [opened, setOpenedStatus] = useState(false)
+    const Icon = opened ? CloseRoundedIcon : QuestionAnswerRoundedIcon
+    const chatNodeRef = useRef<HTMLDivElement>(null)
+
+    const toggleChat = useCallback(() => setOpenedStatus(prev => !prev), [])
+
+    useEffect(() => {
+        // https://usehooks-ts.com/react-hook/use-on-click-outside
+        const handleClick: React.MouseEventHandler<HTMLElement> = (e) => {
+            if(!opened) return;
+            if(chatNodeRef?.current?.contains(e.target as Node)) toggleChat()
+        } 
+
+
+        document.addEventListener('click', handleClick)
+        return () => {
+            document.removeEventListener('click', handleClick)
+        }
+    }, [chatNodeRef])
+
+    return (
+        <div ref={chatNodeRef} className={styles.chat}>
+            <button className={styles.btn}>
+                <Icon className={styles.icon} onClick={toggleChat} />
+            </button>
+            {
+                opened &&
+                <div className={styles.content}>
+                    <p>Добро пожаловать на наш сайт, если вам нужна помощь или есть какие-либо вопросы, вы можете написать</p>
+                    <Form />
+                </div>
+            }
+        </div>
+    )
+}
