@@ -1,16 +1,15 @@
-import { useEffect } from 'react';
-import { fetchProducts } from 'store/products/actionCreators';
-import './App.css';
+import { Content } from 'components/Content/Main';
+import { Header } from 'components/Header/Main';
+import { Loader } from 'components/Loader/Main';
 import { useAppDispatch } from 'hooks/useAppDispatch';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { selectProducts } from 'store/products/selectors';
+import { BrowserRouter } from 'react-router-dom';
 import { fetchCategories } from 'store/categories/actionCreators';
 import { selectCategories } from 'store/categories/selectors';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { Header } from 'components/Header/Main';
-import { Home } from 'pages/Home';
-import { Contact } from 'pages/Contact';
-import { About } from 'pages/About';
+import { fetchProducts } from 'store/products/actionCreators';
+import { selectProducts } from 'store/products/selectors';
+import './App.css';
 
 function App() {
   const dispatch = useAppDispatch()
@@ -18,8 +17,8 @@ function App() {
   const categories = useSelector(selectCategories)
 
   useEffect(() => {
-    dispatch(fetchProducts())
-    dispatch(fetchCategories())
+    // dispatch(fetchProducts())
+    // dispatch(fetchCategories())
     
     // sendEmail('<div><button>click me</button><h2>TITLE HERE</h2><div>')
   }, [dispatch])
@@ -28,12 +27,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Header />
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/about' element={<About />} />
-          <Route path='*' element={<Navigate to='/' replace />} />
-        </Routes>
+        <Content />
+        <Loader />
       </BrowserRouter>
     </div>
   );
