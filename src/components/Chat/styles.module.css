@@ -34,6 +34,22 @@
     border-radius: 4px;
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.chat .content,
+.chat .content form * {
+    font-size: .9rem;
+}
+
+.chat .content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.chat .content::-webkit-scrollbar-thumb {
+    background-color: rgba(211, 211, 211, 0.644);
+    border-radius: 4px;
 }
 
 .chat .content p {
@@ -54,13 +70,34 @@
 
 .chat form input,
 .chat form textarea {
+    margin-top: .2rem;
+}
+
+.chat form input,
+.chat form textarea {
     box-sizing: border-box;
-    padding: .75rem;
+    padding: .5rem;
     border-radius: 4px;
     border: 1px solid lightgray;
     width: 100%;
 }
 
+.chat form input:focus-within,
+.chat form textarea:focus-within {
+    outline: initial;
+}
+
 .chat form textarea {
     resize: none;
+}
+
+.chat form button {
+    all: unset;
+    display: block;
+    text-align: center;
+    padding: .5rem;
+    color: #FFF;
+    background-color: var(--tertiary-color);
+    border-radius: 4px;
+    cursor: pointer;
 }

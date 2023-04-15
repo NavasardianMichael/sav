@@ -11,25 +11,30 @@ export const Chat: FC = () => {
     const chatNodeRef = useRef<HTMLDivElement>(null)
 
     const toggleChat = useCallback(() => setOpenedStatus(prev => !prev), [])
+    
+    const handleChatButtonClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+        e.stopPropagation();
+        setOpenedStatus(prev => !prev)
+    } 
 
     useEffect(() => {
-        // https://usehooks-ts.com/react-hook/use-on-click-outside
-        const handleClick: React.MouseEventHandler<HTMLElement> = (e) => {
+        const handleClick = (e: any) => {
+            e.stopPropagation();
             if(!opened) return;
-            if(chatNodeRef?.current?.contains(e.target as Node)) toggleChat()
-        } 
-
+            if(!chatNodeRef?.current?.contains(e.target as Node)) toggleChat()
+        }
 
         document.addEventListener('click', handleClick)
+
         return () => {
             document.removeEventListener('click', handleClick)
         }
-    }, [chatNodeRef])
+    }, [chatNodeRef, opened])
 
     return (
         <div ref={chatNodeRef} className={styles.chat}>
-            <button className={styles.btn}>
-                <Icon className={styles.icon} onClick={toggleChat} />
+            <button className={styles.btn} onClick={handleChatButtonClick}>
+                <Icon className={styles.icon} />
             </button>
             {
                 opened &&
