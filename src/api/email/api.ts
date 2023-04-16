@@ -1,11 +1,15 @@
-export const sendEmail = async (form: string) => {
+type T_Args = {
+  subject: string, 
+  body: string
+}
+
+export const sendEmail = async ({subject, body}: T_Args) => {
     const response = await Email.send({
       SecureToken : process.env.REACT_APP_EMAIL_TOKEN as string,
       From : process.env.REACT_APP_EMAIL_ACCOUNT as string,
       To : 'navasardianmichael2@gmail.com',
-      Subject : "Project Submission Pending",
-      Body : form
+      Subject : subject,
+      Body : body
     })
-    console.log('---EMAIL RESPONSE---') 
-    console.log({response}) 
+    return response 
 }

@@ -2,7 +2,8 @@ import { SET_APPEARANCE_OPTIONS } from "./actionTypes";
 import { T_AppearanceActions, T_AppearanceState } from "./types";
 
 const initialState: T_AppearanceState = {
-    isFetchingMainData: false
+    isFetchingMainData: false,
+    isPendingContactEmail: false
 }
 
 export const appearanceReducer = (

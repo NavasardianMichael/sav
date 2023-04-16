@@ -3,6 +3,7 @@ import QuestionAnswerRoundedIcon from '@mui/icons-material/QuestionAnswerRounded
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import styles from './styles.module.css';
 import { Form } from "./Form";
+import { Loader } from "components/Loader/Main";
 
 export const Chat: FC = () => {
 
@@ -41,6 +42,7 @@ export const Chat: FC = () => {
                 <div className={styles.content}>
                     <p>Добро пожаловать на наш сайт, если вам нужна помощь или есть какие-либо вопросы, вы можете написать</p>
                     <Form />
+                    <Loader statusKey='isPendingContactEmail' />
                 </div>
             }
         </div>

@@ -1,3 +1,7 @@
+.contact {
+    position: relative;
+}
+
 .chat {
     position: fixed;
     right: 3rem;
@@ -34,8 +38,9 @@
     border-radius: 4px;
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    max-height: 500px;
+    height: 533px;
     overflow-y: auto;
+    background-color: #FFF;
 }
 
 .chat .content,
@@ -71,6 +76,7 @@
 .chat form input,
 .chat form textarea {
     margin-top: .2rem;
+    transition: .2s;
 }
 
 .chat form input,
@@ -82,9 +88,15 @@
     width: 100%;
 }
 
+.chat .invalid input,
+.chat .invalid textarea {
+    border-color: red;
+}
+
 .chat form input:focus-within,
 .chat form textarea:focus-within {
     outline: initial;
+    border: 1px solid var(--tertiary-color);
 }
 
 .chat form textarea {

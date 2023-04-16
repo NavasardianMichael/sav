@@ -1,7 +1,8 @@
 import { SET_APPEARANCE_OPTIONS } from "./actionTypes"
 
 export type T_AppearanceState = {
-    isFetchingMainData: boolean 
+    isFetchingMainData: boolean
+    isPendingContactEmail: boolean
 }
 
 export type T_SetAppearanceOptions = (options: Partial<T_AppearanceState>) => ({
