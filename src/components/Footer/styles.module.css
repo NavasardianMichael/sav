@@ -1,0 +1,28 @@
+.footer {
+    /* background-color: var(--primary-color); */
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.upperBlock {
+    display: flex;
+    gap: 100px;
+}
+
+.logo {
+    max-width: 180px;
+}
+
+.itemsWithText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo img {
+    width: 100%;
+}

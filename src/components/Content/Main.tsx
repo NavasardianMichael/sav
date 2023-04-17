@@ -4,6 +4,7 @@ import { Home } from "pages/Home";
 import { FC } from "react";
 import { Navigate, Route, Routes } from "react-router";
 import styles from './styles.module.css';
+import { Order } from "pages/Order";
 
 export const Content: FC = () => {
 
@@ -13,6 +14,7 @@ export const Content: FC = () => {
                 <Route index element={<Home />} />
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/about' element={<About />} />
+                <Route path='/order' element={<Order />} />
                 <Route path='*' element={<Navigate to='/' replace />} />
             </Routes>
         </div>

@@ -9,6 +9,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { selectCategories } from 'store/categories/selectors';
 import { selectProducts } from 'store/products/selectors';
 import './App.css';
+import { Footer } from 'components/Footer/Main';
 
 function App() {
   const dispatch = useAppDispatch()
@@ -27,6 +28,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Content />
+        <Footer />
         <Chat />
         <Loader statusKey='isFetchingMainData' allPage />
       </BrowserRouter>

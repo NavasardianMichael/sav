@@ -4,6 +4,7 @@ import styles from './styles.module.css'
 import { PAGE_NAVIGATIONS } from "helpers/constants/pages";
 import { NavLink, NavLinkProps } from "react-router-dom";
 import { combineClassNames } from "helpers/functions/commons";
+import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 
 export const Header: FC = () => {
 
@@ -34,6 +35,9 @@ export const Header: FC = () => {
                         )
                     })
                 }
+                <NavLink to='order' className={generateClassNames}>
+                    <BookmarkAddIcon />
+                </NavLink>
             </div>
         </div>
     )
