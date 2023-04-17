@@ -1,5 +1,5 @@
-import { CONTACT_FORM_TEMPLATE } from "helpers/constants/forms";
-import { FC, useState } from "react";
+import { CONTACT_FORM_FIELD_NAMES, CONTACT_FORM_TEMPLATE } from "helpers/constants/forms";
+import { FC, useEffect, useState } from "react";
 import styles from './styles.module.css'
 import { validateEmail } from "helpers/functions/commons";
 import { sendEmail } from "api/email/api";
@@ -7,32 +7,33 @@ import ReactDOMServer  from 'react-dom/server'
 import { MailTemplate } from "./MailTemplate";
 import { useDispatch } from "react-redux";
 import { setAppearanceOptions } from "store/appearance/actionCreators";
+import { SuccessMessage } from "./SuccessMessage";
 
 export const Form: FC = () => {
 
-    const [showSuccessMessage, setShowSuccessMessage] = useState(false)
     const dispatch = useDispatch()
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false)
 
     const [validities, setValidities] = useState<{[key in (typeof CONTACT_FORM_TEMPLATE[number])['name']]: boolean}>({
-        "contact-form-name": false,
-        "contact-form-email": false,
-        "contact-form-phone": false,
-        "contact-form-content": false,
+        [CONTACT_FORM_FIELD_NAMES.name]: false,
+        [CONTACT_FORM_FIELD_NAMES.email]: false,
+        [CONTACT_FORM_FIELD_NAMES.phone]: false,
+        [CONTACT_FORM_FIELD_NAMES.content]: false,
     })
     const [values, setValues] = useState<{[key in (typeof CONTACT_FORM_TEMPLATE[number])['name']]: string}>({
-        "contact-form-name": '',
-        "contact-form-email": '',
-        "contact-form-phone": '',
-        "contact-form-content": '',
+        [CONTACT_FORM_FIELD_NAMES.name]: '',
+        [CONTACT_FORM_FIELD_NAMES.email]: '',
+        [CONTACT_FORM_FIELD_NAMES.phone]: '',
+        [CONTACT_FORM_FIELD_NAMES.content]: '',
     })
 
     const handleSendForm: React.MouseEventHandler<HTMLButtonElement> = async (e) => {
         e.preventDefault()
         const currentValidities = {
-            "contact-form-name": !values['contact-form-name'],
-            "contact-form-phone": !values['contact-form-phone'],
-            "contact-form-email": !values['contact-form-email'] || !validateEmail(values['contact-form-email']),
-            "contact-form-content": !values['contact-form-content'],
+            [CONTACT_FORM_FIELD_NAMES.name]: !values['contact-form-name'],
+            [CONTACT_FORM_FIELD_NAMES.phone]: !values['contact-form-phone'],
+            [CONTACT_FORM_FIELD_NAMES.email]: !values['contact-form-email'] || !validateEmail(values['contact-form-email']),
+            [CONTACT_FORM_FIELD_NAMES.content]: !values['contact-form-content'],
         } 
         setValidities(currentValidities)
 
@@ -47,9 +48,6 @@ export const Form: FC = () => {
         })
         dispatch(setAppearanceOptions({isPendingContactEmail: false}))
         setShowSuccessMessage(true)
-        setTimeout(() => {
-            setShowSuccessMessage(false)
-        }, 3000)
     }
 
     const handleFieldChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) => {
@@ -65,9 +63,13 @@ export const Form: FC = () => {
         }))
     }
 
-    if(showSuccessMessage) {
-        return <div>Отправлено!</div>
-    }
+    useEffect(() => {
+        return () => {
+            if(showSuccessMessage) setShowSuccessMessage(false)
+        }
+    }, [])
+
+    if(showSuccessMessage) return <SuccessMessage />
 
     return (
         <form>

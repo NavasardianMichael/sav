@@ -1,25 +1,32 @@
+export const CONTACT_FORM_FIELD_NAMES = {
+    name: 'contact-form-name',
+    phone: 'contact-form-phone',
+    email: 'contact-form-email',
+    content: 'contact-form-content',
+} as const
+
 export const CONTACT_FORM_TEMPLATE = [
     {
         id: 1,
-        name: 'contact-form-name',
+        name: CONTACT_FORM_FIELD_NAMES.name,
         label: 'Имя',
         isLongFormat: false
     },
     {
         id: 2,
-        name: 'contact-form-phone',
+        name: CONTACT_FORM_FIELD_NAMES.phone,
         label: 'Телефон',
         isLongFormat: false
     },
     {
         id: 3,
-        name: 'contact-form-email',
+        name: CONTACT_FORM_FIELD_NAMES.email,
         label: 'Эл. почта',
         isLongFormat: false
     },
     {
         id: 4,
-        name: 'contact-form-content',
+        name: CONTACT_FORM_FIELD_NAMES.content,
         label: 'Сочинение',
         isLongFormat: true
     },
