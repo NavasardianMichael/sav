@@ -2,26 +2,38 @@ import { FC } from "react";
 import styles from './styles.module.css'
 import { CONTACT_ITEMS } from "helpers/constants/contacts";
 import Logo from 'assets/images/logo.svg'
+import { NavLink } from "react-router-dom";
 
 export const Footer: FC = () => {
     return (
         <div className={styles.footer}>
             <div className={styles.upperBlock}>
                 <div className={styles.logo}>
-                    <img src={Logo} />
+                    <NavLink to='/'>
+                        <img src={Logo} />
+                    </NavLink>
                 </div>
-                <div className={styles.itemsWithText}>
+                <div className={styles.linkItems}>
                     {
                         CONTACT_ITEMS.withText.map(({id, title, href, Icon, prefix, text}) => {
                             return (
-                                <div key={id}>
-                                    <a target='_blank' title={title} href={prefix + href}>
+                                    <a key={id} target='_blank' title={title} href={prefix + href}>
                                         <Icon /> {text}
                                     </a>
-                                </div>
                             )
                         })
                     }
+                    <div className={styles.iconItems}>
+                        {
+                            CONTACT_ITEMS.onlyIcons.map(({id, title, href, Icon, prefix}) => {
+                                return (
+                                        <a key={id} target='_blank' title={title} href={prefix + href}>
+                                            <Icon />
+                                        </a>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
             </div>
             <div className={styles.lowerBlock}>

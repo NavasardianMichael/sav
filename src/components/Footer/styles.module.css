@@ -1,10 +1,11 @@
 .footer {
-    /* background-color: var(--primary-color); */
-    color: #fff;
+    color: var(--primary-color);
     padding: 1rem;
     display: flex;
-    gap: 20px;
+    gap: 40px;
+    justify-content: space-around;
     flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 12px;
 }
 
 .upperBlock {
@@ -12,17 +13,31 @@
     gap: 100px;
 }
 
-.logo {
-    max-width: 180px;
-}
-
-.itemsWithText {
+.linkItems {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+    gap: .75rem;
 }
 
 .logo img {
-    width: 100%;
+    display: block;
+    width: 190px;
+}
+
+.linkItems a {
+    color: var(--primary-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    transition: .3s;
+}
+
+.linkItems a:hover {
+    color: var(--secondary-color);
+}
+
+.iconItems {
+    display: flex;
+    gap: .75rem;
 }
