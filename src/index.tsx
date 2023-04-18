@@ -6,6 +6,7 @@ import { productsReducer } from './store/products/reducer';
 import { categoriesReducer } from 'store/categories/reducer';
 import { appearanceReducer } from 'store/appearance/reducer';
 import App from './App';
+import { orderReducer } from 'store/order/reducer';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -14,7 +15,8 @@ const root = ReactDOM.createRoot(
 const reducers = combineReducers({
   products: productsReducer,
   categories: categoriesReducer,
-  appearance: appearanceReducer
+  appearance: appearanceReducer,
+  order: orderReducer
 })
 
 const store = createStore(

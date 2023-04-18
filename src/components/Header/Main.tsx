@@ -1,14 +1,17 @@
 import { FC } from "react";
 import Logo from 'assets/images/logo.svg'
-import styles from './styles.module.css'
 import { PAGE_NAVIGATIONS } from "helpers/constants/pages";
 import { NavLink, NavLinkProps } from "react-router-dom";
 import { combineClassNames } from "helpers/functions/commons";
-import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useOrderLocalStorage } from "hooks/useOrderLocalStorage";
+import styles from './styles.module.css'
+import { Badge } from "./Badge";
 
 export const Header: FC = () => {
 
-    const [homePage, ...pages] = PAGE_NAVIGATIONS
+    const [ homePage, ...pages ] = PAGE_NAVIGATIONS
+    const { value, addOrder, removeOrder } = useOrderLocalStorage()
 
     const generateClassNames: NavLinkProps['className'] = ({ isActive }) => {
         return combineClassNames(styles.link, isActive ? styles.active : undefined)
@@ -36,7 +39,8 @@ export const Header: FC = () => {
                     })
                 }
                 <NavLink to='order' className={generateClassNames}>
-                    <BookmarkAddIcon />
+                    <ShoppingCartIcon />
+                    <Badge />
                 </NavLink>
             </div>
         </div>
