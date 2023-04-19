@@ -18,7 +18,7 @@ export const Footer: FC = () => {
                         CONTACT_ITEMS.withText.map(({id, title, href, Icon, prefix, text}) => {
                             return (
                                     <a key={id} target='_blank' title={title} href={prefix + href}>
-                                        <Icon fontSize='large' /> {text}
+                                        <Icon fontSize='medium' /> {text}
                                     </a>
                             )
                         })
@@ -28,7 +28,7 @@ export const Footer: FC = () => {
                             CONTACT_ITEMS.onlyIcons.map(({id, title, href, Icon, prefix}) => {
                                 return (
                                         <a key={id} target='_blank' title={title} href={prefix + href}>
-                                            <Icon fontSize='large' />
+                                            <Icon fontSize='medium' />
                                         </a>
                                 )
                             })

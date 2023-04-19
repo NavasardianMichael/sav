@@ -30,7 +30,7 @@ export const DesktopNavbar: FC = () => {
                 })
             }
             <NavLink to='order' className={generateClassNames}>
-                <ShoppingCartIcon fontSize='large' />
+                <ShoppingCartIcon fontSize='medium' />
                 <Badge />
             </NavLink>
         </div>

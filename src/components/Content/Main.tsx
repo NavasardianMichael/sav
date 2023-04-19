@@ -8,6 +8,7 @@ import { Order } from "pages/Order";
 import { useDispatch } from "react-redux";
 import { setOrderItems } from "store/order/actionCreators";
 import { getOrderLocalStorage } from "helpers/functions/order";
+import { Product } from "pages/Product";
 
 export const Content: FC = () => {
 
@@ -24,6 +25,7 @@ export const Content: FC = () => {
             <Routes>
                 <Route index element={<Home />} />
                 <Route path='/contact' element={<Contact />} />
+                <Route path='/product/:id' element={<Product />} />
                 <Route path='/about' element={<About />} />
                 <Route path='/order' element={<Order />} />
                 <Route path='*' element={<Navigate to='/' replace />} />
