@@ -31,7 +31,7 @@ export const MobileNavbar: FC = () => {
                             to={path}
                             className={generateClassNames}
                             >
-                                {name}
+                                {name} 
                             </NavLink>
                         )
                     })
