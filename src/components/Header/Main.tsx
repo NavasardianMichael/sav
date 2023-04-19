@@ -1,21 +1,14 @@
 import { FC } from "react";
-import Logo from 'assets/images/logo.svg'
+import { NavLink } from "react-router-dom";
+import Logo from 'assets/images/logo.svg';
 import { PAGE_NAVIGATIONS } from "helpers/constants/pages";
-import { NavLink, NavLinkProps } from "react-router-dom";
-import { combineClassNames } from "helpers/functions/commons";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { useOrderLocalStorage } from "hooks/useOrderLocalStorage";
-import styles from './styles.module.css'
-import { Badge } from "./Badge";
+
+import { Navbar } from "./Navbar/Main";
+import styles from './styles.module.css';
 
 export const Header: FC = () => {
 
-    const [ homePage, ...pages ] = PAGE_NAVIGATIONS
-    const { value, addOrder, removeOrder } = useOrderLocalStorage()
-
-    const generateClassNames: NavLinkProps['className'] = ({ isActive }) => {
-        return combineClassNames(styles.link, isActive ? styles.active : undefined)
-    }
+    const [ homePage ] = PAGE_NAVIGATIONS
 
     return (
         <div className={styles.header}>
@@ -24,25 +17,10 @@ export const Header: FC = () => {
                     <img src={Logo} />
                 </NavLink>
             </div>
-            <div className={styles.navbar}>
-                {
-                    pages.map(({ id, name, path }) => {
-                        return (
-                            <NavLink
-                                key={id}
-                                to={path}
-                                className={generateClassNames}
-                            >
-                                {name}
-                            </NavLink>
-                        )
-                    })
-                }
-                <NavLink to='order' className={generateClassNames}>
-                    <ShoppingCartIcon />
-                    <Badge />
-                </NavLink>
-            </div>
+            <Navbar>
+                <Navbar.Desktop />
+                <Navbar.Mobile />
+            </Navbar>
         </div>
     )
 }

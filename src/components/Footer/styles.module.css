@@ -10,6 +10,7 @@
 
 .upperBlock {
     display: flex;
+    flex-wrap: wrap;
     gap: 100px;
 }
 
@@ -40,4 +41,10 @@
 .iconItems {
     display: flex;
     gap: .75rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .logo {
+        display: none;
+    }
 }

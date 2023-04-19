@@ -1,6 +1,6 @@
 import { T_OrderItem } from "store/order/types";
 
-export const useOrderLocalStorage = (key: string = 'order') => {
+export const getOrderLocalStorage = (key: string = 'order') => {
     const valueStr = localStorage.getItem(key)
     console.log({valueStr});
     

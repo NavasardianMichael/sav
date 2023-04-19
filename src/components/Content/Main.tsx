@@ -7,12 +7,12 @@ import styles from './styles.module.css';
 import { Order } from "pages/Order";
 import { useDispatch } from "react-redux";
 import { setOrderItems } from "store/order/actionCreators";
-import { useOrderLocalStorage } from "hooks/useOrderLocalStorage";
+import { getOrderLocalStorage } from "helpers/functions/order";
 
 export const Content: FC = () => {
 
     const dispatch = useDispatch()
-    const { value } = useOrderLocalStorage()
+    const { value } = getOrderLocalStorage()
 
     useEffect(() => {
         if(!value) return;

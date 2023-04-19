@@ -3,17 +3,17 @@ import { useSelector } from "react-redux"
 import { selectCategories } from "store/categories/selectors"
 import { selectProducts } from "store/products/selectors"
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
-import styles from './styles.module.css'
-import { useOrderLocalStorage } from "hooks/useOrderLocalStorage";
 import { useDispatch } from "react-redux";
 import { setOrderItems } from "store/order/actionCreators";
+import { getOrderLocalStorage } from "helpers/functions/order";
+import styles from './styles.module.css'
 
 export const Products: FC = () => {
 
     const dispatch = useDispatch()
     const products = useSelector(selectProducts)
     const categories = useSelector(selectCategories)
-    const { addOrder } = useOrderLocalStorage()
+    const { addOrder } = getOrderLocalStorage()
 
     const handleClick = () => {
         const order = {

@@ -1,4 +1,4 @@
-import { FC, MouseEventHandler, useCallback, useEffect, useRef, useState } from "react";
+import { FC, useCallback, useEffect, useRef, useState } from "react";
 import QuestionAnswerRoundedIcon from '@mui/icons-material/QuestionAnswerRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import styles from './styles.module.css';
