@@ -48,32 +48,38 @@
 }
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
     .card {
         width: 100%;
     }    
 }
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+@media screen and (min-width: 600px) {
     .card {
         width: calc((100% / 2) - 1 * (1.5rem / 2));
     }    
 }
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
     .card {
         width: calc((100% / 3) - 2 * (1.5rem / 3));
     }    
 }
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+@media screen and (min-width: 992px) {
     .card {
         width: calc((100% / 4) - 3 * (1.5rem / 4));
     }    
 }
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
     .card {
         width: calc((100% / 5) - 4 * (1.5rem / 5));
     }    
 }
+
+For Mobile devices: 320px-480px
+For Tablets or iPad: 480px - 768px
+For Laptop or small-size screen: 768px -1024px
+For Desktop or large-size screen: 1024px -1200px
+For Extra-large size device: 1200px and

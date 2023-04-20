@@ -1,6 +1,6 @@
 import { CONTACT_FORM_FIELD_NAMES, CONTACT_FORM_TEMPLATE } from "helpers/constants/forms";
 import { FC, useEffect, useState } from "react";
-import styles from './styles.module.css'
+import styles from './styles.module.scss'
 import { validateEmail } from "helpers/functions/commons";
 import { sendEmail } from "api/email/api";
 import ReactDOMServer  from 'react-dom/server'

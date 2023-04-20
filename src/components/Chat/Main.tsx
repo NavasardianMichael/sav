@@ -1,7 +1,7 @@
 import { FC, useCallback, useEffect, useRef, useState } from "react";
 import QuestionAnswerRoundedIcon from '@mui/icons-material/QuestionAnswerRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import styles from './styles.module.css';
+import styles from './styles.module.scss';
 import { Form } from "./Form";
 import { Loader } from "components/Loader/Main";
 
