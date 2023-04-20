@@ -1,3 +1,5 @@
+@import 'assets/styles/_mixins.scss';
+
 .chat {
     position: fixed;
     right: 2rem;
@@ -33,10 +35,14 @@
         border-radius: 4px;
         overflow: hidden;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-        height: 60vh;
+        height: 70vh;
         overflow-y: auto;
         background-color: #FFF;
         font-size: .9rem;
+
+        @include sm-max {
+            height: 60vh;
+        }
 
         p {
             padding: 1rem;
@@ -109,8 +115,4 @@
         height: calc(100% - 92px);
     }
 
-}
-
-@media screen {
-    
 }

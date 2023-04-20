@@ -10,6 +10,8 @@
     min-width: calc(100% / 6 - 5 * 1.5rem);
     box-sizing: border-box;
     overflow: hidden;
+    text-decoration: none;
+    color: var(--primary-color)
 }
 
 .card .upperSection {
@@ -18,15 +20,6 @@
 
 .card img {
     width: 100%;
-    transition: .5s;
-    transform: scale(1);
-    opacity: 1;
-}
-
-.card img:hover {
-    width: 100%;
-    opacity: .3;
-    transform: scale(1.5);
 }
 
 .lowerSection {
@@ -77,9 +70,3 @@
         width: calc((100% / 5) - 4 * (1.5rem / 5));
     }    
 }
-
-For Mobile devices: 320px-480px
-For Tablets or iPad: 480px - 768px
-For Laptop or small-size screen: 768px -1024px
-For Desktop or large-size screen: 1024px -1200px
-For Extra-large size device: 1200px and

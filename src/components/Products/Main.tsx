@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { setOrderItems } from "store/order/actionCreators";
 import { getOrderLocalStorage } from "helpers/functions/order";
 import styles from './styles.module.css'
+import { NavLink } from "react-router-dom";
 
 export const Products: FC = () => {
 
@@ -15,7 +16,9 @@ export const Products: FC = () => {
     const categories = useSelector(selectCategories)
     const { addOrder } = getOrderLocalStorage()
 
-    const handleClick = () => {
+    const handleClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+        e.stopPropagation();
+        e.preventDefault()
         const order = {
             id: '1',
             productId: '1',
@@ -31,7 +34,7 @@ export const Products: FC = () => {
                 products.allIds.map(id => {
                     const product = products.byId[id]
                     return (
-                        <div key={id} className={styles.card}>
+                        <NavLink to={`/product/${id}`} key={id} className={styles.card}>
                             <div className={styles.upperSection}>
                                 <img src={product.imageUrl} />
                             </div>
@@ -42,7 +45,7 @@ export const Products: FC = () => {
                                     <BookmarkAddIcon />
                                 </button>
                             </div>
-                        </div>
+                        </NavLink>
                     )
                 })
             }
