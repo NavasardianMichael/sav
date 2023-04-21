@@ -21,10 +21,11 @@ export const processSubCategoriesData = (data: T_SheetRowResponse[]): T_SubCateg
 }
 
 const processSheetRow = (data: T_SheetRowResponse): T_SubCategory => {
-    const [id, name, categoryId] = data
+    const [id, name, categoryId, productIds] = data
     return {
         id,
         name,
+        productIds: productIds.split(','),
         categoryId
     }    
 }

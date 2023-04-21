@@ -1,5 +1,6 @@
 .footer {
     color: var(--primary-color);
+    margin-top: 2rem;
     padding: 2rem;
     display: flex;
     gap: 40px;

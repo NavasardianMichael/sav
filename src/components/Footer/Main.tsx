@@ -1,8 +1,8 @@
-import { FC } from "react";
-import styles from './styles.module.css'
+import Logo from 'assets/images/logo.svg';
 import { CONTACT_ITEMS } from "helpers/constants/contacts";
-import Logo from 'assets/images/logo.svg'
+import { FC } from "react";
 import { NavLink } from "react-router-dom";
+import styles from './styles.module.css';
 
 export const Footer: FC = () => {
     return (

@@ -1,5 +1,5 @@
-import { FC } from 'react'
 import { CONTACT_FORM_TEMPLATE } from "helpers/constants/forms"
+import { FC } from 'react'
 
 type T_Props = {
     values: {[key in (typeof CONTACT_FORM_TEMPLATE[number])['name']]: string}

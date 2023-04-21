@@ -18,6 +18,7 @@ textarea {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 28vh;
 }
 
 /* Extra small devices (phones, 600px and down) */

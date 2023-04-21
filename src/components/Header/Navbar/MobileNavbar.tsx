@@ -1,9 +1,11 @@
+import CloseMenuIcon from '@mui/icons-material/Close';
+import OpenMenuIcon from '@mui/icons-material/Menu';
 import { FC, useState } from 'react';
 import { NavLink, NavLinkProps } from 'react-router-dom';
+
 import { PAGE_NAVIGATIONS } from 'helpers/constants/pages';
 import { combineClassNames } from 'helpers/functions/commons';
-import OpenMenuIcon from '@mui/icons-material/Menu';
-import CloseMenuIcon from '@mui/icons-material/Close';
+
 import styles from './styles.module.scss';
 
 export const MobileNavbar: FC = () => {

@@ -1,9 +1,11 @@
 import { FC } from "react";
-import styles from './styles.module.scss';
-import { useParams } from "react-router";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router";
+
 import { RootState } from "index";
 import { T_Product } from "store/products/types";
+
+import styles from './styles.module.scss';
 
 export const ProductInfo: FC = () => {
     const id = useParams().id as T_Product['id']

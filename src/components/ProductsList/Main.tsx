@@ -1,16 +1,16 @@
-import { FC } from "react"
-import { useSelector } from "react-redux"
-import { selectCategories } from "store/categories/selectors"
-import { selectProducts } from "store/products/selectors"
-import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
-import { useDispatch } from "react-redux";
-import { setOrderItems } from "store/order/actionCreators";
+import { FC } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import { getOrderLocalStorage } from "helpers/functions/order";
-import styles from './styles.module.css'
-import { NavLink } from "react-router-dom";
+import { selectCategories } from "store/categories/selectors";
+import { setOrderItems } from "store/order/actionCreators";
+import { selectProducts } from "store/products/selectors";
 import { selectSubCategories } from "store/subCategories/selectors";
 
-export const Products: FC = () => {
+import { Categories } from "./Categories/Main";
+import styles from './styles.module.css';
+
+export const ProductsLists: FC = () => {
 
     const dispatch = useDispatch()
     const products = useSelector(selectProducts)
@@ -32,8 +32,9 @@ console.log({categories, subCategories});
     }
 
     return (
-        <div className={styles.products}>
-            {
+        <div className={styles.productsList}>
+            <Categories />
+            {/* {
                 products.allIds.map(id => {
                     const product = products.byId[id]
                     return (
@@ -50,7 +51,7 @@ console.log({categories, subCategories});
                         </NavLink>
                     )
                 })
-            }
+            } */}
         </div>
     )
 }

@@ -1,13 +1,13 @@
-import { CONTACT_FORM_FIELD_NAMES, CONTACT_FORM_TEMPLATE } from "helpers/constants/forms";
-import { FC, useEffect, useState } from "react";
-import styles from './styles.module.scss'
-import { validateEmail } from "helpers/functions/commons";
 import { sendEmail } from "api/email/api";
-import ReactDOMServer  from 'react-dom/server'
-import { MailTemplate } from "./MailTemplate";
+import { CONTACT_FORM_FIELD_NAMES, CONTACT_FORM_TEMPLATE } from "helpers/constants/forms";
+import { validateEmail } from "helpers/functions/commons";
+import { FC, useEffect, useState } from "react";
+import ReactDOMServer from 'react-dom/server';
 import { useDispatch } from "react-redux";
 import { setAppearanceOptions } from "store/appearance/actionCreators";
+import { MailTemplate } from "./MailTemplate";
 import { SuccessMessage } from "./SuccessMessage";
+import styles from './styles.module.scss';
 
 export const Form: FC = () => {
 
