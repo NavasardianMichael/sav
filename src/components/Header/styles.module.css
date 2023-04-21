@@ -1,19 +1,17 @@
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #fff;
+    width: 100%;
     text-align: center;
     display: flex;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    justify-content: space-between;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
     align-items: center;
     font-size: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 12px;
-    height: 16vh;
-}
-
-.header .logo {
-    height: 60%;
-}
-
-.header .logo img {
-    height: 100%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 12px;
+    height: 18vh;
 }

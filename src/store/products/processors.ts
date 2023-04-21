@@ -20,11 +20,11 @@ export const processProductsData = (data: T_SheetRowResponse[]): G_NormalizedSta
 }
 
 const processSheetRow = (data: T_SheetRowResponse): T_Product => {
-    const [id, name, price, imageUrl, categoryId] = data
+    const [id, name, imageUrl, categoryId, description] = data
     return {
         id,
         name,
-        price: +price,
+        description,
         imageUrl,
         categoryId
     }    

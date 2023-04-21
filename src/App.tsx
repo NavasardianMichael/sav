@@ -8,14 +8,19 @@ import { Content } from 'components/Content/Main';
 import { Header } from 'components/Header/Main';
 import { Loader } from 'components/Loader/Main';
 import { Footer } from 'components/Footer/Main';
+import { fetchSubCategories } from 'store/subCategories/actionCreators';
+import { useSelector } from 'react-redux';
 import './App.css';
 
 function App() {
   const dispatch = useAppDispatch()
+  const state = useSelector(state => state)
+console.log({state});
 
   useEffect(() => {
-    dispatch(fetchProducts())
-    dispatch(fetchCategories())    
+    dispatch(fetchCategories()) 
+    dispatch(fetchSubCategories()) 
+    dispatch(fetchProducts())    
   }, [dispatch])
 
   return (

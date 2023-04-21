@@ -14,4 +14,9 @@ export const PAGE_NAVIGATIONS = [
         name: 'Обратная свазь',
         path: 'contact'
     },
+    {
+        id: 4,
+        name: 'Отзывы',
+        path: 'testimonials'
+    },
 ]

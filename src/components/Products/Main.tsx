@@ -8,13 +8,16 @@ import { setOrderItems } from "store/order/actionCreators";
 import { getOrderLocalStorage } from "helpers/functions/order";
 import styles from './styles.module.css'
 import { NavLink } from "react-router-dom";
+import { selectSubCategories } from "store/subCategories/selectors";
 
 export const Products: FC = () => {
 
     const dispatch = useDispatch()
     const products = useSelector(selectProducts)
     const categories = useSelector(selectCategories)
+    const subCategories = useSelector(selectSubCategories)
     const { addOrder } = getOrderLocalStorage()
+console.log({categories, subCategories});
 
     const handleClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
         e.stopPropagation();
@@ -40,7 +43,6 @@ export const Products: FC = () => {
                             </div>
                             <div className={styles.lowerSection}>
                                 <p>{product.name}</p>
-                                <p>{product.price} руб.</p>
                                 <button onClick={handleClick}>
                                     <BookmarkAddIcon />
                                 </button>

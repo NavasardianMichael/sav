@@ -1,4 +1,6 @@
 .content {
-    min-height: 84vh;
+    min-height: 82vh;
+    position: relative;
+    top: calc(18vh + 2rem);
     padding: 2rem;
 }

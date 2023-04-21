@@ -19,7 +19,6 @@ export const ProductInfo: FC = () => {
             <div className={styles.details}>
                 <h3>{currentProduct.name}</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, nemo vitae quidem architecto quaerat, accusantium a amet debitis tempora numquam exercitationem beatae sint accusamus aperiam perferendis maiores. Maiores, soluta. Officia.</p>
-                <p>{currentProduct.price} руб.</p>
             </div>
         </div>
     )

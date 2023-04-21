@@ -11,9 +11,9 @@ export type T_ProductsState = {
 export type T_Product = {
     id: string
     name: string
-    price: number
     imageUrl: string
     categoryId: T_Category['id']
+    description: string
 }
 
 export type T_SetProducts = (products: T_ProductsState) => ({

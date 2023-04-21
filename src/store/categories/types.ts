@@ -1,3 +1,4 @@
+import { T_SubCategory } from "store/subCategories/types"
 import { SET_CATEGORIES } from "./actionTypes"
 
 export type T_CategoriesState = {
@@ -10,6 +11,7 @@ export type T_CategoriesState = {
 export type T_Category = {
     id: string
     name: string
+    subCategoryIds: T_SubCategory['id'][]
 }
 
 export type T_SetCategories = (categories: T_CategoriesState) => ({

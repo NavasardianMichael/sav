@@ -4,7 +4,7 @@ import { PAGE_NAVIGATIONS } from 'helpers/constants/pages';
 import { combineClassNames } from 'helpers/functions/commons';
 import OpenMenuIcon from '@mui/icons-material/Menu';
 import CloseMenuIcon from '@mui/icons-material/Close';
-import styles from './styles.module.css';
+import styles from './styles.module.scss';
 
 export const MobileNavbar: FC = () => {
 

@@ -1,0 +1,11 @@
+.categories {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    height: 25%;
+
+    .category {
+        padding-left: .5rem;
+        padding-right: .5rem;
+    }
+}

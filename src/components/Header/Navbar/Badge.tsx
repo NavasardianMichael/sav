@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { useSelector } from 'react-redux'
 import { selectOrderList } from 'store/order/selectors'
-import styles from './styles.module.css'
+import styles from './styles.module.scss'
 
 export const Badge: FC = () => {
 

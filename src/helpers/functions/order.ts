@@ -2,7 +2,6 @@ import { T_OrderItem } from "store/order/types";
 
 export const getOrderLocalStorage = (key: string = 'order') => {
     const valueStr = localStorage.getItem(key)
-    console.log({valueStr});
     
     if(valueStr == null) {
         return {
@@ -13,7 +12,6 @@ export const getOrderLocalStorage = (key: string = 'order') => {
     }
     
     const orderList = JSON.parse(valueStr)
-    console.log({orderList});
 
     return {
         value: orderList,

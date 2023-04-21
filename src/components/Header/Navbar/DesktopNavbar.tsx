@@ -4,7 +4,7 @@ import { PAGE_NAVIGATIONS } from 'helpers/constants/pages';
 import { combineClassNames } from 'helpers/functions/commons';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Badge } from "./Badge";
-import styles from './styles.module.css';
+import styles from './styles.module.scss';
 
 export const DesktopNavbar: FC = () => {
 

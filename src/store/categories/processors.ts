@@ -20,9 +20,10 @@ export const processCategoriesData = (data: T_SheetRowResponse[]): G_NormalizedS
 }
 
 const processSheetRow = (data: T_SheetRowResponse): T_Category => {
-    const [id, name] = data
+    const [id, name, subCategoryIds] = data
     return {
         id,
         name,
-    }    
+        subCategoryIds: subCategoryIds.split(',')
+    }
 }
