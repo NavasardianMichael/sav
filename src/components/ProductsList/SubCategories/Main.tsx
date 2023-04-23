@@ -19,7 +19,7 @@ export const SubCategories: FC<T_Props> = ({ ids }) => {
     if(!hasObjAnyKey(subCategories.byId)) return null;
 
     return (
-        <div className={styles.categories}>
+        <div className={styles.subCategories}>
             {
                 ids.map(subCategoryId => {
                     const subCategory = subCategories.byId[subCategoryId]

@@ -2,6 +2,7 @@
 
 .chat {
     position: fixed;
+    z-index: 2;
     right: 2rem;
     bottom: 1.5rem;
 
@@ -29,6 +30,7 @@
 
     .content {
         position: fixed;
+        z-index: 2;
         bottom: 6.5rem;
         right: 2rem;
         width: 350px;
