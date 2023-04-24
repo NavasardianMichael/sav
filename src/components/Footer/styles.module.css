@@ -35,8 +35,10 @@
     transition: .3s;
 }
 
-.linkItems a:hover {
-    color: var(--secondary-color);
+@media (hover: hover) {
+    .linkItems a:hover {
+        color: var(--secondary-color);
+    }
 }
 
 .iconItems {

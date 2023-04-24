@@ -18,9 +18,11 @@
         cursor: pointer;
         transition: .3s;
 
-        &:hover {
-            background-color: var(--secondary-color);
-        }
+        @media (hover: hover) {
+            &:hover {
+                background-color: var(--secondary-color);
+            }
+        }        
         
         .icon {
             font-size: 2.5rem;

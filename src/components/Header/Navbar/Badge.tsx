@@ -9,9 +9,15 @@ export const Badge: FC = () => {
 
     if(!orderList.length) return null;
 
+    const productQuantity = orderList.reduce((acc, order) => {
+        acc += order.quantity
+        
+        return acc
+    }, 0) 
+
     return (
         <div className={styles.badge}>
-            {orderList.length}
+            {productQuantity || 0}
         </div>
     )
 }

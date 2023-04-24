@@ -1,3 +1,5 @@
+@import 'assets/styles/_mixins.scss';
+
 .products {
     display: flex;
     flex-direction: column;
@@ -8,9 +10,14 @@
         gap: 2rem;
         flex-wrap: wrap;
 
+        @include sm-max {
+            gap: 1rem;
+        }
+
         & > div {
             width: calc((100% - 4rem) / 3);
             max-width: 300px;
+            min-width: 250px;
             box-sizing: border-box;
         }
 
@@ -23,7 +30,6 @@
         }
 
         .detailsBlock {
-            h4,
             p {
                 margin-top: 0;
             }
@@ -32,21 +38,37 @@
         .optionsBlock {
 
             .quantityBlock {
+
                 display: flex;
-                align-items: center;
-                background-color: rgba(240,242,245,1);
-                width: fit-content;
-                border-radius: 8px;
-                
+                gap: 1rem;
+
                 button {
                     all: unset;
                     padding: .5rem;
                     cursor: pointer;
                     color: rgba(91,108,143,1);
                     transition: .2s;
-
-                    &:hover {
-                        color: rgb(64, 75, 99);
+                    
+                    @media (hover: hover) {
+                        &:hover {
+                            color: rgb(64, 75, 99);
+                        }
+                    }
+                }
+                
+                .manipulations {
+                    display: flex;
+                    align-items: center;
+                    background-color: rgba(240,242,245,1);
+                    width: fit-content;
+                    border-radius: 8px;
+                }
+                
+                .application {
+                    button {
+                        text-align: center;
+                        background-color: rgba(240,242,245,1);
+                        border-radius: 8px;
                     }
                 }
 
@@ -56,6 +78,7 @@
                 
                 input {
                     padding: .5rem;
+                    font-size: 1rem;
                     background-color: rgba(240,242,245,1);
                     width: 40px;
                     outline: none;

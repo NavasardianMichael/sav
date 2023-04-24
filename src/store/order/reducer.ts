@@ -8,9 +8,11 @@ const initialState: T_OrderState = {
 export const orderReducer = (
     state: T_OrderState = initialState, 
     action: T_OrderActions
-) => {
+) => {  
     switch (action.type) {
         case SET_ORDER_ITEMS:
+            console.log({action});
+            
             return {
                 ...state,
                 list: [
