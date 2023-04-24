@@ -1,9 +1,9 @@
 .content {
-    min-height: 82vh;
     position: relative;
     top: 28vh;
-
+    
     .currentPageContent {
+        min-height: 100vh;
         padding: 2rem;
     }
 }

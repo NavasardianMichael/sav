@@ -1,10 +1,10 @@
-import { FC } from "react";
-import { ReactComponent as LoaderSvg } from 'assets/images/loader.svg'
-import { useSelector } from "react-redux";
-import styles from './styles.module.css';
+import { ReactComponent as LoaderSvg } from 'assets/images/loader.svg';
 import { combineClassNames } from "helpers/functions/commons";
-import { T_AppearanceState } from "store/appearance/types";
 import { RootState } from "index";
+import { FC } from "react";
+import { useSelector } from "react-redux";
+import { T_AppearanceState } from "store/appearance/types";
+import styles from './styles.module.css';
 
 type T_Props = {
     statusKey: keyof T_AppearanceState 

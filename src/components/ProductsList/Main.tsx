@@ -34,24 +34,6 @@ console.log({categories, subCategories});
     return (
         <div className={styles.productsList}>
             <Categories />
-            {/* {
-                products.allIds.map(id => {
-                    const product = products.byId[id]
-                    return (
-                        <NavLink to={`/product/${id}`} key={id} className={styles.card}>
-                            <div className={styles.upperSection}>
-                                <img src={product.imageUrl} />
-                            </div>
-                            <div className={styles.lowerSection}>
-                                <p>{product.name}</p>
-                                <button onClick={handleClick}>
-                                    <BookmarkAddIcon />
-                                </button>
-                            </div>
-                        </NavLink>
-                    )
-                })
-            } */}
         </div>
     )
 }

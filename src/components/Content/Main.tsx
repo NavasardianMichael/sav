@@ -1,7 +1,5 @@
 import { Footer } from "components/Footer/Main";
 import { getOrderLocalStorage } from "helpers/functions/order";
-import { About } from "pages/About";
-import { Contact } from "pages/Contact";
 import { Home } from "pages/Home";
 import { Order } from "pages/Order";
 import { Product } from "pages/Product";
@@ -26,9 +24,7 @@ export const Content: FC = () => {
             <div className={styles.currentPageContent}>
                 <Routes>
                     <Route index element={<Home />} />
-                    <Route path='/contact' element={<Contact />} />
                     <Route path='/product/:id' element={<Product />} />
-                    <Route path='/about' element={<About />} />
                     <Route path='/order' element={<Order />} />
                     <Route path='*' element={<Navigate to='/' replace />} />
                 </Routes>

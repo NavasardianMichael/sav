@@ -1,35 +1,19 @@
-import { FC } from 'react';
-import { NavLink, NavLinkProps } from 'react-router-dom';
-import { PAGE_NAVIGATIONS } from 'helpers/constants/pages';
-import { combineClassNames } from 'helpers/functions/commons';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { FC } from 'react';
+import { NavLink } from 'react-router-dom';
+
+import { PAGE_SECTIONS } from 'helpers/constants/pages';
+
 import { Badge } from "./Badge";
+import { LinkList } from './LinkList';
 import styles from './styles.module.scss';
 
 export const DesktopNavbar: FC = () => {
 
-    const [ _, ...pages ] = PAGE_NAVIGATIONS
-
-    const generateClassNames: NavLinkProps['className'] = ({ isActive }) => {
-        return combineClassNames(styles.link, isActive ? styles.active : undefined)
-    }
-
     return (
         <div className={styles.desktopNavbar}>
-            {
-                pages.map(({ id, name, path }) => {
-                    return (
-                        <NavLink
-                            key={id}
-                            to={path}
-                            className={generateClassNames}
-                        >
-                            {name}
-                        </NavLink>
-                    )
-                })
-            }
-            <NavLink to='order' className={generateClassNames}>
+            <LinkList />
+            <NavLink to='order' className={styles.link}>
                 <ShoppingCartIcon fontSize='medium' />
                 <Badge />
             </NavLink>

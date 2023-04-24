@@ -15,19 +15,19 @@ type T_Props = {
 export const Products: FC<T_Props> = ({ ids }) => {
 
     const products = useSelector(selectProducts)
-    const [count, setCount] = useState(1)
+    const [count, setCount] = useState('1')
 
     if(!products.allIds.length) return null;
 
     const handleCountUnitChange: React.MouseEventHandler<HTMLButtonElement> = (e) => {
         const { name } = e.currentTarget
-        if(name === 'decrement') return setCount(prev => +prev - 1)
-        setCount(prev => +prev + 1)
+        if(name === 'decrement') return setCount(prev => (+prev - 1).toString())
+        setCount(prev => (+prev + 1).toString())
     }
 
     const handleCountChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
         const { value } = e.currentTarget
-        setCount(+value)
+        setCount(value)
     }
 
     return (

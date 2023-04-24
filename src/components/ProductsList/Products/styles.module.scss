@@ -43,6 +43,11 @@
                     padding: .5rem;
                     cursor: pointer;
                     color: rgba(91,108,143,1);
+                    transition: .2s;
+
+                    &:hover {
+                        color: rgb(64, 75, 99);
+                    }
                 }
 
                 * {

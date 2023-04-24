@@ -1,22 +1,17 @@
-export const PAGE_NAVIGATIONS = [
-    {
-        id: 1,
-        name: 'Home',
-        path: '/'
+export const PAGE_SECTIONS = {
+    byId: {
+        about: {
+            id: 'about',
+            name: 'О нас',
+        },
+        contact: {
+            id: 'contact',
+            name: 'Обратная свазь',
+        },
+        testimonials:  {
+            id: 'testimonials',
+            name: 'Отзывы',
+        },
     },
-    {
-        id: 2,
-        name: 'О нас',
-        path: 'about'
-    },
-    {
-        id: 3,
-        name: 'Обратная свазь',
-        path: 'contact'
-    },
-    {
-        id: 4,
-        name: 'Отзывы',
-        path: 'testimonials'
-    },
-]
+    allIds: ['about', 'contact', 'testimonials']
+} as const
