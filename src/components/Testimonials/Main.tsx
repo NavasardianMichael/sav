@@ -1,11 +1,12 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
-import { PAGE_SECTIONS } from 'helpers/constants/pages'
+import { Section } from 'components/Section/Main';
+import { PAGE_SECTIONS } from 'helpers/constants/pages';
 
 export const Testimonials: FC = () => {
     return (
-        <div id={PAGE_SECTIONS.byId.testimonials.id}>
-            {PAGE_SECTIONS.byId.testimonials.name}
-        </div>
+        <Section id={PAGE_SECTIONS.byId.testimonials.id}>
+            <p>Testimonials</p>
+        </Section>
     )
 }

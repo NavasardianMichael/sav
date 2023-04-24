@@ -1,3 +1,4 @@
+import sharedStyles from 'assets/styles/_shared.module.scss';
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { selectCategories } from 'store/categories/selectors';
@@ -15,7 +16,7 @@ export const Categories: FC = () => {
                     const category = categories.byId[categoryId]
                     return (
                         <div id={category.id} key={category.id} className={styles.category}>
-                            <h2>{category.name}</h2>
+                            <h2 className={sharedStyles['h-lg']}>{category.name}</h2>
                             <SubCategories ids={category.subCategoryIds} />
                         </div>
                     )

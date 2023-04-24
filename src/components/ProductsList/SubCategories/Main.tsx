@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { T_Category } from 'store/categories/types';
 import { selectSubCategories } from 'store/subCategories/selectors';
 
+import sharedStyles from 'assets/styles/_shared.module.scss';
 import { hasObjAnyKey } from 'helpers/functions/commons';
 import { Products } from '../Products/Main';
 import styles from './styles.module.scss';
@@ -25,7 +26,7 @@ export const SubCategories: FC<T_Props> = ({ ids }) => {
                     const subCategory = subCategories.byId[subCategoryId]
                     return (
                         <div id={subCategoryId} key={subCategoryId} className={styles.subCategory}>
-                            <h3>{subCategory.name}</h3>
+                            <h3 className={sharedStyles['h-md']}>{subCategory.name}</h3>
                             <Products ids={subCategory.productIds} />
                         </div>
                     )
