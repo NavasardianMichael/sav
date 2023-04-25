@@ -12,7 +12,7 @@ const style: React.CSSProperties = {
     margin: 'auto'
 }
 
-export const MailTemplate: FC<T_Props> = ({values}) => {
+export const EmailTemplate: FC<T_Props> = ({values}) => {
     return (
         <div>
             <h1 style={{textAlign: 'center'}}>Сообщение от пользователя в службу поддержки SAV</h1>
