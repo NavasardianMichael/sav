@@ -16,10 +16,8 @@ export const Content: FC = () => {
 
     useEffect(() => {
         if(!value) return;
-        console.log({value});
         
         dispatch(setOrderItems(value))
-        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }, [dispatch])
 
     return (

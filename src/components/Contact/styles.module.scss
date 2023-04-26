@@ -1,3 +1,5 @@
+@import 'assets/styles/_mixins.scss';
+
 .contact {
 
     .info {
@@ -56,7 +58,32 @@
             }
 
             & > div:nth-child(-n+3) {
-                width: calc(100% / 3 - 2rem / 3);
+                
+                @include lg-min {
+                    width: calc(100% / 3 - 2rem / 3);
+                }
+                @include md-lg {
+                    width: calc((100% - 1rem) / 2);
+                }
+                @include md-max {
+                    width: 100%;
+                }
+                
+            }
+            
+            & > div:nth-last-of-type(2) {
+                
+                @include lg-min {
+                    width: 100%;
+                }
+                
+                @include md-lg {
+                    width: calc(50% - .5rem);
+                }
+                
+                @include md-max {
+                    width: 100%;
+                }
             }
 
             & > div:last-of-type {

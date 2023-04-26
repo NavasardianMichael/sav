@@ -1,20 +1,29 @@
-import { G_NormalizedState } from "helpers/types";
 import { T_SheetRowResponse } from "../../api/sheets/types";
 import { T_CategoriesState, T_Category } from "./types";
 
-export const processCategoriesData = (data: T_SheetRowResponse[]): G_NormalizedState<T_Category> => {
+export const processCategoriesData = (data: T_SheetRowResponse[]): T_CategoriesState => {
     let result: T_CategoriesState = {
         byId: {},
-        allIds: []
+        allIds: [],
+        testimonialSourceIds: []
     }
     const [_, ...rows] = data
 
-    rows.forEach((row: T_SheetRowResponse) => {
+    const [ categories, testimonialDriveIds ] = rows.reduce((acc: [T_SheetRowResponse[],T_SheetRowResponse[]], row) => {
+        if(row[0] == null) return acc;
+        acc[row[2] ? 0 : 1].push(row)        
+        return acc
+    }, [[], []])
+
+    categories.forEach((row: T_SheetRowResponse) => {
         const processedRow = processSheetRow(row)
         
         result.byId[processedRow.id] = processedRow
         result.allIds.push(processedRow.id)
     });
+
+    result.testimonialSourceIds = testimonialDriveIds.map(row => row[1])
+console.log({result});
 
     return result
 }

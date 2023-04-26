@@ -92,7 +92,9 @@ export const ContactForm: FC<T_Props> = ({ EmailTemplate, SuccessMessageTemplate
                     )
                 })
             }
-            <button onClick={handleSendForm}>Отправить</button>
+            <div>
+                <button onClick={handleSendForm}>Отправить</button>
+            </div>
         </form>
     )
 }

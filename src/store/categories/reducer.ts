@@ -3,7 +3,8 @@ import { T_CategoriesActions, T_CategoriesState } from "./types";
 
 const initialState: T_CategoriesState = {
     byId: {},
-    allIds: []
+    allIds: [],
+    testimonialSourceIds: []
 }
 
 export const categoriesReducer = (

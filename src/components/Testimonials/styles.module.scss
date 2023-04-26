@@ -1,0 +1,30 @@
+@import 'assets/styles/_mixins.scss';
+
+.testimonials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .testimonial {
+        box-sizing: border-box;
+        box-shadow: #00000029 0px 1px 4px;
+        padding: 1rem;
+
+        @include xl-min {
+            width: calc((100% - 3rem) / 4);
+        }
+        @include lg-xl {
+            width: calc((100% - 2rem) / 3);
+        }
+        @include md-lg {
+            width: calc((100% - 1rem) / 2);
+        }
+        @include md-max {
+            width: 100%;
+        }
+    
+        img {
+            width: 100%;
+        }
+    }
+}

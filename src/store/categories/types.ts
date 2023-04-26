@@ -1,4 +1,5 @@
 import { T_SubCategory } from "store/subCategories/types"
+
 import { SET_CATEGORIES } from "./actionTypes"
 
 export type T_CategoriesState = {
@@ -6,6 +7,7 @@ export type T_CategoriesState = {
         [key: T_Category['id']]: T_Category
     }
     allIds: T_Category['id'][]
+    testimonialSourceIds: string[]
 }
 
 export type T_Category = {
