@@ -1,7 +1,8 @@
+import { OrderList } from "components/OrderList/Main";
 import { FC } from "react";
 
 export const Order: FC = () => {
     return (
-        <h1>Order</h1>
+        <OrderList />
     )
 }
