@@ -6,19 +6,40 @@ import { T_OrderItem } from "store/order/types";
 
 export const useOrderDispatch = () => {
     const dispatch = useDispatch()
-    const { addOrders, editOrder, removeOrder } = getOrderLocalStorage()
+    const { list, addOrders, editOrder, removeOrder } = getOrderLocalStorage()
+
+    const add = (items: T_OrderItem[]) => {
+        const existingOrder = list.find(i => i.productId=== items[0].productId)
+        console.log({list, items, existingOrder});
+        
+        let newList: T_OrderItem[] = (
+            existingOrder ?
+            editOrder({
+                ...items[0],
+                quantity: existingOrder.quantity + items[0].quantity
+            }) :
+            addOrders(items)
+        )
+        console.log({newList});
+        
+        dispatch(setOrderItems(newList))
+    }
+    const remove = (id: T_OrderItem['id']) => {
+        const newList = removeOrder(id)
+        dispatch(setOrderItems(newList))
+    }
+    const edit = (order: T_OrderItem) => {
+        let newList: T_OrderItem[] = (
+            order.quantity ?
+            editOrder(order) :
+            removeOrder(order.productId)
+        )
+        dispatch(setOrderItems(newList))
+    }
+
     return {
-        add: (items: T_OrderItem[]) => {
-            const newList = addOrders(items)
-            dispatch(setOrderItems(newList))
-        },
-        edit: (order: T_OrderItem) => {
-            const newList = editOrder(order)
-            dispatch(setOrderItems(newList))
-        },
-        remove: (id: T_OrderItem['id']) => {
-            const newList = removeOrder(id)
-            dispatch(setOrderItems(newList))
-        },
+        add,
+        edit,
+        remove
     }
 }
