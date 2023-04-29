@@ -28,10 +28,8 @@ export const getOrderLocalStorage = (key: string = 'order'): T_Func => {
         }
     }
     
-    const orderList = JSON.parse(valueStr)
-    
     return {
-        list: orderList,
+        list: JSON.parse(localStorage.getItem(key) as string),
         addOrders: (submittedOrders) => {
             const currentOrders: T_OrderItem[] = JSON.parse(localStorage.getItem(key) as string)
             const newOrders = [...currentOrders, ...submittedOrders]

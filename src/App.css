@@ -2,6 +2,8 @@
   --primary-color: rgba(16,49,120,1);
   --secondary-color: rgba(255,153,35,1);
   --tertiary-color: #0396a8;
+  --lighter-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  --darker-box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 12px;
 }
 
 body,

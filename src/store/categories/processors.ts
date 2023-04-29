@@ -23,7 +23,6 @@ export const processCategoriesData = (data: T_SheetRowResponse[]): T_CategoriesS
     });
 
     result.testimonialSourceIds = testimonialDriveIds.map(row => row[1])
-console.log({result});
 
     return result
 }

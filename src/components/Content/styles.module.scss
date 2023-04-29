@@ -6,7 +6,7 @@
     
     .currentPageContent {
         min-height: 100vh;
-        padding: 2rem;
+        padding: 0 2rem 2rem 2rem;
 
         @include sm-max {
             padding: 1rem;

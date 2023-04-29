@@ -2,6 +2,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { FC, useState } from 'react';
 
+import sharedStyles from 'assets/styles/_shared.module.scss';
 import { useOrderDispatch } from 'hooks/useOrderDispatch';
 import { T_Product } from "store/products/types";
 
@@ -43,7 +44,7 @@ export const Product: FC<T_Props> = ({ product: { id, name, description, imageUr
                 <img src={imageUrl} alt={name} />
             </div>
             <div className={styles.detailsBlock}>
-                <h4>{name}</h4>
+                <h4 className={sharedStyles['mt-0']}>{name}</h4>
                 <p>{description}</p>
             </div>
             <div className={styles.optionsBlock}>
