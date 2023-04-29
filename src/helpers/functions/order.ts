@@ -2,8 +2,9 @@ import { T_OrderItem } from "store/order/types";
 
 type T_Func = {
     list: T_OrderItem[]
-    addOrder: (v: T_OrderItem[]) => void
-    removeOrder: (v: T_OrderItem) => void
+    addOrders: (v: T_OrderItem[]) => T_OrderItem[]
+    editOrder: (v: T_OrderItem) => T_OrderItem[]
+    removeOrder: (v: T_OrderItem['productId']) => T_OrderItem[]
 }
 
 export const getOrderLocalStorage = (key: string = 'order'): T_Func => {
@@ -12,8 +13,18 @@ export const getOrderLocalStorage = (key: string = 'order'): T_Func => {
     if(valueStr == null) {
         return {
             list: [],
-            addOrder: (v: any) => localStorage.setItem(key, JSON.stringify(v)),
-            removeOrder: () => console.log(`no value found in localStorage applied to "${key}" key, eventually the order cannot be removed`),
+            addOrders: (v) => {
+                localStorage.setItem(key, JSON.stringify(v))
+                return v
+            },
+            editOrder: () => {
+                console.warn(`no value found in localStorage applied to "${key}" key, eventually the order cannot be edited`)
+                return []
+            },
+            removeOrder: () => {
+                console.log(`no value found in localStorage applied to "${key}" key, eventually the order cannot be removed`)
+                return []
+            },
         }
     }
     
@@ -21,11 +32,23 @@ export const getOrderLocalStorage = (key: string = 'order'): T_Func => {
     
     return {
         list: orderList,
-        addOrder: (v: T_OrderItem[]) => {
-            localStorage.setItem(key, JSON.stringify([...JSON.parse(localStorage.getItem(key) as string), ...v]))
+        addOrders: (submittedOrders) => {
+            const currentOrders: T_OrderItem[] = JSON.parse(localStorage.getItem(key) as string)
+            const newOrders = [...currentOrders, ...submittedOrders]
+            localStorage.setItem(key, JSON.stringify(newOrders))
+            return newOrders
         },
-        removeOrder: (v: T_OrderItem) => {
-            localStorage.setItem(key, JSON.stringify(JSON.parse(localStorage.getItem(key) as string).filter((l: any) => l.id !== v.id)))
+        editOrder: (newOrder) => {
+            const currentOrders: T_OrderItem[] = JSON.parse(localStorage.getItem(key) as string)
+            const newOrders = currentOrders.map(currentOrder => newOrder.id === currentOrder.id ? newOrder : currentOrder)
+            localStorage.setItem(key, JSON.stringify(newOrders))
+            return newOrders
+        },
+        removeOrder: (productId) => {
+            const currentOrders: T_OrderItem[] = JSON.parse(localStorage.getItem(key) as string)
+            const newOrders = currentOrders.filter(currentOrder => currentOrder.id !== productId)
+            localStorage.setItem(key, JSON.stringify(newOrders))
+            return newOrders
         },
     }
 }

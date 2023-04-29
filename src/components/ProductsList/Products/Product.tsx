@@ -1,8 +1,10 @@
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import { useOrderDispatch } from 'hooks/useOrderDispatch';
 import { FC, useState } from 'react';
+
+import { useOrderDispatch } from 'hooks/useOrderDispatch';
 import { T_Product } from "store/products/types";
+
 import styles from './styles.module.scss';
 
 type T_Props = {
@@ -12,7 +14,7 @@ type T_Props = {
 
 export const Product: FC<T_Props> = ({ product: { id, name, description, imageUrl } }) => {
 
-    const orderDispatch = useOrderDispatch()
+    const { add } = useOrderDispatch()
     const [count, setCount] = useState('1')
 
     const handleCountUnitChange: React.MouseEventHandler<HTMLButtonElement> = (e) => {
@@ -28,7 +30,7 @@ export const Product: FC<T_Props> = ({ product: { id, name, description, imageUr
 
     const handleCountApply: React.MouseEventHandler<HTMLButtonElement> = (e) => {
         const { name } = e.currentTarget
-        orderDispatch([{
+        add([{
             id: Date.now().toString(),
             productId: name,
             quantity: +count

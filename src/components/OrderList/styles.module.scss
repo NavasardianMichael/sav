@@ -1,0 +1,29 @@
+.ordersBlock {
+
+    .ordersList {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        .order {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            padding: 1.5rem 1rem;
+
+            .imgCol {
+
+                img {
+                    max-height: 120px;
+                }
+            }
+
+            .nameCol {
+                min-width: 300px;
+                max-width: 50%;
+            }
+        }
+    }
+}

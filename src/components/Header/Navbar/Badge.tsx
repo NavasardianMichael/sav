@@ -1,23 +1,19 @@
 import { FC } from 'react'
-import { useSelector } from 'react-redux'
-import { selectOrderList } from 'store/order/selectors'
+
+import { useOrderCount } from 'hooks/useOrderCount'
+
 import styles from './styles.module.scss'
 
 export const Badge: FC = () => {
 
-    const orderList = useSelector(selectOrderList)
 
-    if(!orderList.length) return null;
+    const count = useOrderCount()
 
-    const productQuantity = orderList.reduce((acc, order) => {
-        acc += order.quantity
-        
-        return acc
-    }, 0) 
+    if(!count) return null;
 
     return (
         <div className={styles.badge}>
-            {productQuantity || 0}
+            {count}
         </div>
     )
 }

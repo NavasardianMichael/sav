@@ -11,14 +11,9 @@ export const orderReducer = (
 ) => {  
     switch (action.type) {
         case SET_ORDER_ITEMS:
-            console.log({action});
-            
             return {
                 ...state,
-                list: [
-                    ...state.list,
-                    ...action.payload.items
-                ]
+                list: action.payload.items
             }
         default:
             return state
