@@ -28,7 +28,7 @@ export const Item: FC<T_Props> = ({ order, product, handleCountChange, handleCou
                 <img src={product.imageUrl} />
             </div>
             <div className={styles.nameCol}>
-                <h4 className={sharedStyles['h-sm']}>{product.name}</h4>
+                <p className={sharedStyles['h-sm']}>{product.name}</p>
             </div>
             <div className={styles.countCol}>
                 <button data-orderid={order.id} name='decrement' onClick={handleCountUnitChange}>
