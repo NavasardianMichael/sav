@@ -1,12 +1,15 @@
+import { FC } from 'react';
+
 import sharedStyles from 'assets/styles/_shared.module.scss';
 import { ContactForm } from 'components/ContactForm/Main';
 import { Section } from 'components/Section/Main';
+import { EMAIL_SUBJECTS } from 'helpers/constants/forms';
 import { PAGE_SECTIONS } from 'helpers/constants/pages';
-import { FC } from 'react';
+
 import { EmailTemplate } from './EmailTemplate';
 import { Info } from './Info';
-import { SuccessMessage } from './SuccessMessage';
 import styles from './styles.module.scss';
+import { SuccessMessage } from './SuccessMessage';
 
 export const Contact: FC = () => {
     return (
@@ -17,6 +20,7 @@ export const Contact: FC = () => {
                 <ContactForm 
                     EmailTemplate={EmailTemplate} 
                     SuccessMessageTemplate={SuccessMessage}
+                    emailSubject={EMAIL_SUBJECTS.contact}
                 />
             </div>
         </Section>

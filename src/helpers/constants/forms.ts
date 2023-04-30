@@ -27,7 +27,12 @@ export const CONTACT_FORM_TEMPLATE = [
     {
         id: 4,
         name: CONTACT_FORM_FIELD_NAMES.content,
-        label: 'Сочинение',
+        label: 'Примечания',
         isLongFormat: true
     },
 ] as const
+
+export const EMAIL_SUBJECTS = {
+    contact: 'Сообщение в службу поддержки',
+    order: 'Новый Заказ!'
+}

@@ -1,17 +1,15 @@
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunk, { ThunkMiddleware } from 'redux-thunk';
-import { Provider } from 'react-redux';
-import { productsReducer } from './store/products/reducer';
-import { categoriesReducer } from 'store/categories/reducer';
+
 import { appearanceReducer } from 'store/appearance/reducer';
-import App from './App';
+import { categoriesReducer } from 'store/categories/reducer';
 import { orderReducer } from 'store/order/reducer';
 import { subCategoriesReducer } from 'store/subCategories/reducer';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+import App from './App';
+import { productsReducer } from './store/products/reducer';
 
 const reducers = combineReducers({
   products: productsReducer,
@@ -25,11 +23,15 @@ const store = createStore(
   reducers,
   applyMiddleware(thunk as ThunkMiddleware<RootState>)
 )
-  
+
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
+
   root.render(
     <Provider store={store}>
-    <App />
-  </Provider>
+      <App />
+    </Provider>
 );
 
 export type RootState = ReturnType<typeof reducers>

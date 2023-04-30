@@ -1,13 +1,14 @@
+import { FC, useState } from "react";
+import { useSelector } from "react-redux";
+
 import sharedStyles from 'assets/styles/_shared.module.scss';
 import { Portal } from 'components/Portal/Main';
 import { useOrderCount } from "hooks/useOrderCount";
 import { useOrderDispatch } from "hooks/useOrderDispatch";
-import { FC, useState } from "react";
-import { useSelector } from "react-redux";
 import { selectOrderList } from "store/order/selectors";
 import { T_OrderItem } from "store/order/types";
 import { selectProducts } from "store/products/selectors";
-import { FinalOrder } from './FinalOrder.tsx/Main';
+import { FinalOrder } from './FinalOrder/Main';
 import { Item } from './Item';
 import styles from './styles.module.scss';
 
@@ -93,7 +94,7 @@ export const OrderList: FC = () => {
                     })
                 }
             </div>
-            <button className={styles.orderBtn} onClick={openOrderDetails}>Заказать</button>
+            { !!count && <button className={styles.orderBtn} onClick={openOrderDetails}>Заказать</button> }
             <Portal opened={orderDetialsOpened} className={styles.finalOrder} setOrderDetailsOpened={setOrderDetailsOpened}>
                 <FinalOrder 
                     key='order-details-portal-content'

@@ -1,6 +1,7 @@
 @import 'assets/styles/_mixins.scss';
 
 .container {
+    color: var(--primary-color);
     .closeBtn {
         all: unset;
         background-color: transparent;
@@ -21,7 +22,6 @@
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
-            color: var(--primary-color);
 
             .invalid input,
             .invalid textarea {

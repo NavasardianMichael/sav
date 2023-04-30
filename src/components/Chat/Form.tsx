@@ -1,8 +1,11 @@
-import { ContactForm } from "components/ContactForm/Main";
 import { FC } from "react";
+
+import { ContactForm } from "components/ContactForm/Main";
+import { EMAIL_SUBJECTS } from "helpers/constants/forms";
+
 import { EmailTemplate } from "./EmailTemplate";
-import { SuccessMessage } from "./SuccessMessage";
 import styles from './styles.module.scss';
+import { SuccessMessage } from "./SuccessMessage";
 
 export const Form: FC = () => {
     return (
@@ -10,6 +13,7 @@ export const Form: FC = () => {
             <ContactForm 
                 EmailTemplate={EmailTemplate}
                 SuccessMessageTemplate={SuccessMessage}
+                emailSubject={EMAIL_SUBJECTS.contact}
             />
         </div>
     )

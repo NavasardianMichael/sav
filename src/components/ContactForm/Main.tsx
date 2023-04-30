@@ -1,23 +1,37 @@
-import { sendEmail } from "api/email/api";
-import { CONTACT_FORM_FIELD_NAMES, CONTACT_FORM_TEMPLATE } from "helpers/constants/forms";
-import { combineClassNames, validateEmail } from "helpers/functions/commons";
 import { FC, useEffect, useState } from "react";
 import ReactDOMServer from 'react-dom/server';
 import { useDispatch } from "react-redux";
+
+import { sendEmail } from "api/email/api";
+import { CONTACT_FORM_FIELD_NAMES, CONTACT_FORM_TEMPLATE } from "helpers/constants/forms";
+import { combineClassNames, validateEmail } from "helpers/functions/commons";
 import { setAppearanceOptions } from "store/appearance/actionCreators";
+
+import { useSelector } from "react-redux";
+import { selectOrderList } from "store/order/selectors";
+import { T_OrderState } from "store/order/types";
+import { selectProducts } from "store/products/selectors";
+import { T_ProductsState } from "store/products/types";
 import styles from './styles.module.scss';
 
 type G_ContactFormUtil<T> = {[key in (typeof CONTACT_FORM_TEMPLATE[number])['name']]: T} 
 
 type T_Props = {
     SuccessMessageTemplate: FC
-    EmailTemplate: FC<{values: G_ContactFormUtil<string>}>
+    EmailTemplate: FC<{
+        values: G_ContactFormUtil<string>
+        products: T_ProductsState
+        orders: T_OrderState['list']
+    }>
+    emailSubject: string
 }
 
-export const ContactForm: FC<T_Props> = ({ EmailTemplate, SuccessMessageTemplate }) => {
+export const ContactForm: FC<T_Props> = ({ EmailTemplate, SuccessMessageTemplate, emailSubject }) => {
 
     const dispatch = useDispatch()
     const [showSuccessMessage, setShowSuccessMessage] = useState(false)
+    const products = useSelector(selectProducts)
+    const orderList = useSelector(selectOrderList)
 
     const [validities, setValidities] = useState<G_ContactFormUtil<boolean>>({
         [CONTACT_FORM_FIELD_NAMES.name]: false,
@@ -46,9 +60,9 @@ export const ContactForm: FC<T_Props> = ({ EmailTemplate, SuccessMessageTemplate
         
         dispatch(setAppearanceOptions({isPendingContactEmail: true}))
         await sendEmail({
-            subject: 'Сообщение в службу поддержки',
+            subject: emailSubject,
             body: ReactDOMServer.renderToStaticMarkup(
-                <EmailTemplate values={values}  />
+                <EmailTemplate values={values} orders={orderList} products={products}  />
             ),
         })
         dispatch(setAppearanceOptions({isPendingContactEmail: false}))
