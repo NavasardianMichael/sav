@@ -16,8 +16,4 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 12px;
     height: 28vh;
     box-sizing: border-box;
-
-    @include sm-max {
-        height: 24vh;
-    }
 }

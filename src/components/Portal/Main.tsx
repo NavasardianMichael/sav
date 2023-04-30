@@ -25,7 +25,7 @@ export const Portal: FC<T_Props> = ({ opened, children, className, setOrderDetai
     }, [])
 
     useEffect(() => {
-        document.getElementsByTagName('html')[0].style.overflow = opened ? 'hidden' : 'overlay'
+        document.getElementsByTagName('html')[0].style.overflow = opened ? 'hidden' : 'auto'
         
         const hidePortal = (e: any) => {
             e.stopPropagation()

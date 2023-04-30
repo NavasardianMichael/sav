@@ -5,94 +5,39 @@
     align-items: center;
     gap: 1rem;
     position: relative;
-    height: 25%;
+    
+    &.home {
+        height: 25%;
+    }
+    
+    &.order {
+        height: 50%;
+    }
 
     @include sm-max {
         font-size: .9rem;
         gap: .5rem;
     }
 
-    // .mobileNavbar {
-
-    //     @include sm-min {
-    //         display: none;
-    //     }
-
-    //     color: var(--primary-color);
-
-    //     .menu {
-    //         position: fixed;
-    //         top: 0;
-    //         left: 0;
-    //         width: 100%;
-    //         height: 100vh;
-    //         display: flex;
-    //         padding: 2rem;
-    //         font-size: 1.25rem;
-    //         flex-direction: column;
-    //         align-items: baseline;
-    //         background-color: var(--primary-color);
-    //         color: #fff;
-    //         transition: .3s;
-    //         z-index: 1;
-
-    //         a {
-    //             color: #fff;
-    //         }
-    //     }
-        
-    //     &.closed .closeIcon {
-    //         display: none;
-    //     }
-        
-    //     &.opened {
-    //         .openIcon {
-    //             display: none;
-    //         }
-
-    //         .menu {
-    //             transform: translateX(0);
-    //         }
-    //     }
-        
-    //     & .closeIcon {
-    //         position: absolute;
-    //         top: 3rem;
-    //         right: 6rem;
-    //     }
-        
-    //     &.closed {
-    //         .menu {
-    //             transform: translateX(-100%);
-    //         }
-    //     }
-        
-    // }
-
-    .badge {
-        color: inherit;
-        position: absolute;
-        right: .25rem;
-        top: .25rem;
-        width: 20px;
-        height: 20px;
-        font-size: .9rem;
-        line-height: 1.2;
-        font-weight: bold;
-        // animation: circleScale 1s infinite;
-
-        @include sm-max {
-            top: 0;
-            right: 0;
-            font-size: .7rem;
+    .orderIcon {    
+        position: relative;    
+        .badge {
+            color: inherit;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -15px;
+            top: -10px;
+            font-size: .9rem;
+            line-height: 1.2;
+            font-weight: bold;
+    
+            @include sm-max {
+                font-size: .7rem;
+            }
         }
-
-        // @keyframes circleScale {
-        //     0% {transform: scale(.5)  }
-        //     50% { transform: scale(1) }
-        //   100% { transform: scale(.5) }
-        // }
     }
+
 
     .link {
         text-decoration: none;
@@ -100,6 +45,7 @@
         transition: .3s;
         padding: 1rem;
         vertical-align: middle;
+        cursor: pointer;
 
         @include sm-max {
             padding: .5rem;

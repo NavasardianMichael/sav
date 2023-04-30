@@ -1,16 +1,16 @@
+import { FC } from 'react'
 import { Chat } from 'components/Chat/Main';
 import { Content } from 'components/Content/Main';
 import { Header } from 'components/Header/Main';
 import { Loader } from 'components/Loader/Main';
 import { useAppDispatch } from 'hooks/useAppDispatch';
 import { useEffect } from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import { fetchCategories } from 'store/categories/actionCreators';
 import { fetchProducts } from 'store/products/actionCreators';
 import { fetchSubCategories } from 'store/subCategories/actionCreators';
 import './App.css';
 
-function App() {
+const App: FC = () => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
@@ -21,12 +21,10 @@ function App() {
 
   return (
     <div className='App'>
-      <BrowserRouter>
-        <Header />
-        <Content />
-        <Chat />
-        <Loader statusKey='isFetchingMainData' allPage />
-      </BrowserRouter>
+      <Header />
+      <Content />
+      <Chat />
+      <Loader statusKey='isFetchingMainData' allPage />
     </div>
   );
 }

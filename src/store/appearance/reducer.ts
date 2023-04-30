@@ -1,9 +1,11 @@
+import { APP_PAGES } from "helpers/constants/pages";
 import { SET_APPEARANCE_OPTIONS } from "./actionTypes";
 import { T_AppearanceActions, T_AppearanceState } from "./types";
 
 const initialState: T_AppearanceState = {
     isFetchingMainData: false,
-    isPendingContactEmail: false
+    isPendingContactEmail: false,
+    activePage: APP_PAGES.home
 }
 
 export const appearanceReducer = (

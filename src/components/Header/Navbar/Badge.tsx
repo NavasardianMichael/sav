@@ -6,7 +6,6 @@ import styles from './styles.module.scss'
 
 export const Badge: FC = () => {
 
-
     const count = useOrderCount()
 
     if(!count) return null;

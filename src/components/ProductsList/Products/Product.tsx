@@ -19,8 +19,12 @@ export const Product: FC<T_Props> = ({ product: { id, name, description, imageUr
     const [count, setCount] = useState('1')
 
     const handleCountUnitChange: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+        e.stopPropagation()
         const { name } = e.currentTarget
-        if(name === 'decrement') return setCount(prev => (+prev - 1).toString())
+        if(name === 'decrement') {
+            if(+count <= 1) return;
+            return setCount(prev => (+prev - 1).toString())
+        }
         setCount(prev => (+prev + 1).toString())
     }
 
@@ -38,6 +42,11 @@ export const Product: FC<T_Props> = ({ product: { id, name, description, imageUr
         }])
     }
 
+    const handleCountInputBlur: React.FocusEventHandler<HTMLInputElement> = (e) => {
+        if(!e.currentTarget.value || +e.currentTarget.value < 0) setCount('1');
+        
+    }
+
     return (
         <div id={id} className={styles.product}>
             <div className={styles.imgBlock}>
@@ -53,7 +62,7 @@ export const Product: FC<T_Props> = ({ product: { id, name, description, imageUr
                         <button name='decrement' onClick={handleCountUnitChange}>
                             <RemoveIcon />
                         </button>
-                        <input type='number' value={count} onChange={handleCountChange} />
+                        <input type='number' value={count} onChange={handleCountChange} onBlur={handleCountInputBlur} />
                         <button name='increment' onClick={handleCountUnitChange}>
                             <AddIcon />
                         </button>

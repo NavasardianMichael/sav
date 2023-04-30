@@ -1,17 +1,21 @@
 import { Footer } from "components/Footer/Main";
+import { APP_PAGES } from "helpers/constants/pages";
 import { getOrderLocalStorage } from "helpers/functions/order";
 import { Home } from "pages/Home";
 import { Order } from "pages/Order";
 import { FC, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Navigate, Route, Routes } from "react-router";
 import { setOrderItems } from "store/order/actionCreators";
 import styles from './styles.module.scss';
+import { useSelector } from "react-redux";
+import { selectActivePage } from "store/appearance/selectors";
+import { combineClassNames } from "helpers/functions/commons";
 
 export const Content: FC = () => {
 
     const dispatch = useDispatch()
     const { list } = getOrderLocalStorage()
+    const activePage = useSelector(selectActivePage)
 
     useEffect(() => {
         if(!list?.length) return;
@@ -19,14 +23,22 @@ export const Content: FC = () => {
         dispatch(setOrderItems(list))
     }, [dispatch])
 
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth"
+          });
+    }, [activePage])
+
     return (
-        <div className={styles.content}>
+        <div className={combineClassNames(styles.content, activePage === APP_PAGES.home ? styles.home: styles.order)}>
             <div className={styles.currentPageContent}>
-                <Routes>
-                    <Route index element={<Home />} />
-                    <Route path='/order' element={<Order />} />
-                    <Route path='*' element={<Navigate to='/' replace />} />
-                </Routes>
+                {
+                    activePage === APP_PAGES.home ?
+                    <Home /> :
+                    <Order />
+                }
             </div>
             <Footer />
         </div>

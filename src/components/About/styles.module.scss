@@ -8,7 +8,6 @@
 
     .section {
         display: flex;
-        align-items: center;
         flex-wrap: wrap;
         gap: 2rem;
 
@@ -21,25 +20,35 @@
         &.centered {
             width: 60%;
             margin: auto;
+
             img {
                 width: 100%;
             }
 
             .info {
                 width: 100%;
-                
             }
             
         }
+
         &.right {
             @include sm-min {
                 flex-direction: row-reverse;
             }
         }
+
         &.right,
         &.left {
+
             img {
-                width: 40%;
+                
+                @include lg-min {
+                    width: 30%;
+                }
+
+                @include lg-max {
+                    width: 40%;
+                }
 
                 @include sm-max {
                     width: 100%;
@@ -47,8 +56,15 @@
                 }
             }
             .info {
-                width: calc(60% - 2rem);
                 
+                @include lg-min {
+                    width: calc(70% - 2rem);
+                }
+                
+                @include lg-max {
+                    width: calc(60% - 2rem);
+                }
+
                 @include sm-max {
                     width: 100%;
                     max-width: 300px;

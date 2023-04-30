@@ -71,7 +71,6 @@
             }
 
             .nameCol {
-                min-width: 300px;
                 max-width: 50%;
             }
         }
@@ -89,6 +88,7 @@
         width: 100%;
         max-width: 500px;
         margin: 2rem auto 0 auto;
+        box-sizing: border-box;
         transition: .2s;
 
         @media (hover: hover) {

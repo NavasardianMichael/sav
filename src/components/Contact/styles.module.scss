@@ -72,18 +72,8 @@
             }
             
             & > div:nth-last-of-type(2) {
-                
-                @include lg-min {
-                    width: 100%;
-                }
-                
-                @include md-lg {
-                    width: calc(50% - .5rem);
-                }
-                
-                @include md-max {
-                    width: 100%;
-                }
+                width: 100%;
+                max-width: 600px;
             }
 
             & > div:last-of-type {
@@ -120,8 +110,16 @@
                 padding: .5rem;
                 color: #FFF;
                 background-color: var(--tertiary-color);
+                box-shadow: var(--lighter-box-shadow);
                 border-radius: 4px;
                 cursor: pointer;
+                transition: .3s;
+
+                @media (hover: hover) {
+                    &:hover {
+                        background-color: var(--secondary-color);
+                    }
+                }
             }                
 
         }

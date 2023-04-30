@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { PAGE_SECTIONS } from "helpers/constants/pages";
+import { HOME_PAGE_SECTIONS } from "helpers/constants/pages";
 
 import styles from './styles.module.scss';
 
@@ -8,8 +8,8 @@ export const LinkList: FC = () => {
     return (
         <>
             {
-                PAGE_SECTIONS.allIds.map(id => {
-                    const section = PAGE_SECTIONS.byId[id]
+                HOME_PAGE_SECTIONS.allIds.map(id => {
+                    const section = HOME_PAGE_SECTIONS.byId[id]
                     return (
                         <a
                             key={id}

@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useSelector } from 'react-redux';
 
 import { Section } from 'components/Section/Main';
-import { PAGE_SECTIONS } from 'helpers/constants/pages';
+import { HOME_PAGE_SECTIONS } from 'helpers/constants/pages';
 import { selectTestimonialSourceIds } from 'store/categories/selectors';
 
 import styles from './styles.module.scss';
@@ -14,7 +14,7 @@ export const Testimonials: FC = () => {
     if(!testimonialSourceIds?.length) return null;
 
     return (
-        <Section id={PAGE_SECTIONS.byId.testimonials.id}>
+        <Section id={HOME_PAGE_SECTIONS.byId.testimonials.id}>
             <div className={styles.testimonials}>
                 {
                     testimonialSourceIds.map(id => {

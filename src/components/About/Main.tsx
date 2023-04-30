@@ -1,13 +1,13 @@
 import { Section } from 'components/Section/Main';
 import { ABOUT_SECTIONS } from 'helpers/constants/about';
-import { PAGE_SECTIONS } from 'helpers/constants/pages';
+import { HOME_PAGE_SECTIONS } from 'helpers/constants/pages';
 import { combineClassNames } from 'helpers/functions/commons';
 import { FC } from 'react';
 import styles from './styles.module.scss';
 
 export const About: FC = () => {
     return (
-        <Section id={PAGE_SECTIONS.byId.about.id} className={styles.about}>
+        <Section id={HOME_PAGE_SECTIONS.byId.about.id} className={styles.about}>
             <>
                 {
                     ABOUT_SECTIONS.map(section => {

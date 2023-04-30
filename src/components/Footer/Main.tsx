@@ -1,7 +1,6 @@
 import Logo from 'assets/images/logo.svg';
 import { CONTACT_ITEMS } from "helpers/constants/contacts";
 import { FC } from "react";
-import { NavLink } from "react-router-dom";
 import styles from './styles.module.css';
 
 export const Footer: FC = () => {
@@ -9,9 +8,9 @@ export const Footer: FC = () => {
         <div className={styles.footer}>
             <div className={styles.upperBlock}>
                 <div className={styles.logo}>
-                    <NavLink to='/'>
+                    <div>
                         <img src={Logo} />
-                    </NavLink>
+                    </div>
                 </div>
                 <div className={styles.linkItems}>
                     {

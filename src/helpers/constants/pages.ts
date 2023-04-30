@@ -1,4 +1,4 @@
-export const PAGE_SECTIONS = {
+export const HOME_PAGE_SECTIONS = {
     byId: {
         about: {
             id: 'about',
@@ -14,4 +14,9 @@ export const PAGE_SECTIONS = {
         },
     },
     allIds: ['about', 'contact', 'testimonials']
+} as const
+
+export const APP_PAGES = {
+    home: 'home',
+    order: 'order'
 } as const
