@@ -21,6 +21,7 @@
 
     .orderIcon {    
         position: relative;    
+
         .badge {
             color: inherit;
             position: absolute;
@@ -31,13 +32,22 @@
             font-size: .9rem;
             line-height: 1.2;
             font-weight: bold;
+
+            &.animating {
+                @keyframes circleScale {
+                    0% {transform: scale(1)  }
+                    50% { transform: scale(.5) }
+                  100% { transform: scale(1) }
+                }
+                animation: circleScale .5s infinite;
+                color: var(--secondary-color);
+            }
     
             @include sm-max {
                 font-size: .7rem;
             }
         }
     }
-
 
     .link {
         text-decoration: none;

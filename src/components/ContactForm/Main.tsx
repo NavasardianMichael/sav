@@ -7,6 +7,8 @@ import { CONTACT_FORM_FIELD_NAMES, CONTACT_FORM_TEMPLATE } from "helpers/constan
 import { combineClassNames, validateEmail } from "helpers/functions/commons";
 import { setAppearanceOptions } from "store/appearance/actionCreators";
 
+import { Loader } from "components/Loader/Main";
+import { T_PendingSettings } from "helpers/types";
 import { useSelector } from "react-redux";
 import { selectOrderList } from "store/order/selectors";
 import { T_OrderState } from "store/order/types";
@@ -24,9 +26,10 @@ type T_Props = {
         orders: T_OrderState['list']
     }>
     emailSubject: string
+    pendingSettings: T_PendingSettings
 }
 
-export const ContactForm: FC<T_Props> = ({ EmailTemplate, SuccessMessageTemplate, emailSubject }) => {
+export const ContactForm: FC<T_Props> = ({ EmailTemplate, SuccessMessageTemplate, emailSubject, pendingSettings }) => {
 
     const dispatch = useDispatch()
     const [showSuccessMessage, setShowSuccessMessage] = useState(false)
@@ -57,15 +60,15 @@ export const ContactForm: FC<T_Props> = ({ EmailTemplate, SuccessMessageTemplate
         setValidities(currentValidities)
 
         if(Object.values(currentValidities).includes(true)) return;
-        
-        dispatch(setAppearanceOptions({isPendingContactEmail: true}))
+        console.log('pending!!!')
+        dispatch(setAppearanceOptions({[pendingSettings.statusKey]: true}))
         await sendEmail({
             subject: emailSubject,
             body: ReactDOMServer.renderToStaticMarkup(
                 <EmailTemplate values={values} orders={orderList} products={products}  />
             ),
         })
-        dispatch(setAppearanceOptions({isPendingContactEmail: false}))
+        dispatch(setAppearanceOptions({[pendingSettings.statusKey]: false}))
         setShowSuccessMessage(true)
     }
 
@@ -91,24 +94,27 @@ export const ContactForm: FC<T_Props> = ({ EmailTemplate, SuccessMessageTemplate
     if(showSuccessMessage) return <SuccessMessageTemplate />
 
     return (
-        <form>
-            {
-                CONTACT_FORM_TEMPLATE.map(({id, isLongFormat, label, name}) => {
-                    return (
-                        <div key={id} className={combineClassNames(styles.inputBlock, validities[name] ? styles.invalid : undefined)}>
-                            <label htmlFor={name}>{label} *</label>
-                            {
-                                isLongFormat ?
-                                <textarea id={name} rows={4} value={values[name]} onChange={handleFieldChange} /> :
-                                <input id={name} value={values[name]} onChange={handleFieldChange} />
-                            }
-                        </div>
-                    )
-                })
-            }
-            <div>
-                <button onClick={handleSendForm}>Отправить</button>
-            </div>
-        </form>
+        <>
+            <Loader {...pendingSettings} />
+            <form>
+                {
+                    CONTACT_FORM_TEMPLATE.map(({id, isLongFormat, label, name}) => {
+                        return (
+                            <div key={id} className={combineClassNames(styles.inputBlock, validities[name] ? styles.invalid : undefined)}>
+                                <label htmlFor={name}>{label} *</label>
+                                {
+                                    isLongFormat ?
+                                    <textarea id={name} rows={4} value={values[name]} onChange={handleFieldChange} /> :
+                                    <input id={name} value={values[name]} onChange={handleFieldChange} />
+                                }
+                            </div>
+                        )
+                    })
+                }
+                <div>
+                    <button onClick={handleSendForm}>Отправить</button>
+                </div>
+            </form>
+        </>
     )
 }

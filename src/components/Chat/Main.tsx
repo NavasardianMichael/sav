@@ -1,9 +1,8 @@
-import { FC, useCallback, useEffect, useRef, useState } from "react";
-import QuestionAnswerRoundedIcon from '@mui/icons-material/QuestionAnswerRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import styles from './styles.module.scss';
+import QuestionAnswerRoundedIcon from '@mui/icons-material/QuestionAnswerRounded';
+import { FC, useCallback, useEffect, useRef, useState } from "react";
 import { Form } from "./Form";
-import { Loader } from "components/Loader/Main";
+import styles from './styles.module.scss';
 
 export const Chat: FC = () => {
 
@@ -42,7 +41,6 @@ export const Chat: FC = () => {
                 <div className={styles.content}>
                     <p>Добро пожаловать на наш сайт, если вам нужна помощь или есть какие-либо вопросы, вы можете написать</p>
                     <Form />
-                    <Loader statusKey='isPendingContactEmail' />
                 </div>
             }
         </div>
