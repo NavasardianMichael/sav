@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/sav/static/css/main.53dfa411.css",
-    "main.js": "/sav/static/js/main.47d8f71c.js",
+    "main.css": "/sav/static/css/main.e8560b29.css",
+    "main.js": "/sav/static/js/main.011b4eb0.js",
     "static/media/logo-aas-industry.png": "/sav/static/media/logo-aas-industry.26fd15e789cf864bb85a.png",
     "static/media/logo-sav-holding.png": "/sav/static/media/logo-sav-holding.71164fc317a93cc8975d.png",
     "static/media/logo-sav-medical.jpeg": "/sav/static/media/logo-sav-medical.a62b0c134faaef875aea.jpeg",
     "static/media/logo.svg": "/sav/static/media/logo.2d1f74a9c63173235a17b377dbcf4b90.svg",
     "index.html": "/sav/index.html",
     "static/media/loader.svg": "/sav/static/media/loader.9a7084091de57682ae20212ada193226.svg",
-    "main.53dfa411.css.map": "/sav/static/css/main.53dfa411.css.map",
-    "main.47d8f71c.js.map": "/sav/static/js/main.47d8f71c.js.map"
+    "main.e8560b29.css.map": "/sav/static/css/main.e8560b29.css.map",
+    "main.011b4eb0.js.map": "/sav/static/js/main.011b4eb0.js.map"
   },
   "entrypoints": [
-    "static/css/main.53dfa411.css",
-    "static/js/main.47d8f71c.js"
+    "static/css/main.e8560b29.css",
+    "static/js/main.011b4eb0.js"
   ]
 }
