@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/sav/static/css/main.e8560b29.css",
-    "main.js": "/sav/static/js/main.011b4eb0.js",
+    "main.js": "/sav/static/js/main.c048035f.js",
     "static/media/logo-aas-industry.png": "/sav/static/media/logo-aas-industry.26fd15e789cf864bb85a.png",
     "static/media/logo-sav-holding.png": "/sav/static/media/logo-sav-holding.71164fc317a93cc8975d.png",
     "static/media/logo-sav-medical.jpeg": "/sav/static/media/logo-sav-medical.a62b0c134faaef875aea.jpeg",
@@ -9,10 +9,10 @@
     "index.html": "/sav/index.html",
     "static/media/loader.svg": "/sav/static/media/loader.9a7084091de57682ae20212ada193226.svg",
     "main.e8560b29.css.map": "/sav/static/css/main.e8560b29.css.map",
-    "main.011b4eb0.js.map": "/sav/static/js/main.011b4eb0.js.map"
+    "main.c048035f.js.map": "/sav/static/js/main.c048035f.js.map"
   },
   "entrypoints": [
     "static/css/main.e8560b29.css",
-    "static/js/main.011b4eb0.js"
+    "static/js/main.c048035f.js"
   ]
 }
