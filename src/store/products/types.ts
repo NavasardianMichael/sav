@@ -13,7 +13,7 @@ export type T_Product = {
     id: string
     name: string
     imageUrl: string
-    categoryId: T_Category['id']
+    subCategoryId: T_Category['id']
     description: string
     sizes: string[]
     quantityPerPack: number
