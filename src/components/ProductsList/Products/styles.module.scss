@@ -36,6 +36,16 @@
         }
 
         .optionsBlock {
+            display: flex;
+            flex-direction: column;
+
+            p:first-of-type {
+                margin-top: 0;
+                margin-bottom: 1rem;
+            }
+            p:last-of-type {
+                margin-top: 2rem;
+            }
 
             .quantityBlock {
 
@@ -99,6 +109,37 @@
                     }
                 }
             }
+
+            .sizesBlock {
+                display: flex;
+                gap: 1rem;
+
+                .sizeBtn {
+                    font-size: 1rem;
+                    padding: .5rem;
+                    cursor: pointer;
+                    border: 2px solid transparent;
+                    color: rgba(91,108,143,1);
+                    background-color: rgba(240,242,245,1);
+                    border-radius: 8px;
+                    display: block;
+                    text-align: center;
+                    min-width: 60px;
+                    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                    transition: .2s;
+                    
+                    &.selected {
+                        border-color: rgba(91,108,143,1);
+                    }
+
+                    @media (hover: hover) {
+                        &:hover {
+                            color: rgb(64, 75, 99);
+                        }
+                    }
+                }
+            }
+
         }
     }
 }

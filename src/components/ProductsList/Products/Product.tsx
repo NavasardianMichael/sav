@@ -3,6 +3,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import { FC, useState } from 'react';
 
 import sharedStyles from 'assets/styles/_shared.module.scss';
+import { combineClassNames } from 'helpers/functions/commons';
 import { useOrderDispatch } from 'hooks/useOrderDispatch';
 import { T_Product } from "store/products/types";
 
@@ -12,11 +13,11 @@ type T_Props = {
     product: T_Product
 }
 
-
-export const Product: FC<T_Props> = ({ product: { id, name, description, imageUrl } }) => {
+export const Product: FC<T_Props> = ({ product: { id, name, description, imageUrl, sizes } }) => {
 
     const { add } = useOrderDispatch()
     const [count, setCount] = useState('1')
+    const [selectedSize, setSelectedSize] = useState(sizes[0])
 
     const handleCountUnitChange: React.MouseEventHandler<HTMLButtonElement> = (e) => {
         e.stopPropagation()
@@ -43,10 +44,15 @@ export const Product: FC<T_Props> = ({ product: { id, name, description, imageUr
     }
 
     const handleCountInputBlur: React.FocusEventHandler<HTMLInputElement> = (e) => {
-        if(!e.currentTarget.value || +e.currentTarget.value < 0) setCount('1');
-        
+        if(!e.currentTarget.value || +e.currentTarget.value < 0) setCount('1')   
     }
 
+    const handleSizeChange: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+        e.stopPropagation()
+        const { name } = e.currentTarget
+        setSelectedSize(name)
+    }
+console.log({sizes, selectedSize})
     return (
         <div id={id} className={styles.product}>
             <div className={styles.imgBlock}>
@@ -57,6 +63,24 @@ export const Product: FC<T_Props> = ({ product: { id, name, description, imageUr
                 <p>{description}</p>
             </div>
             <div className={styles.optionsBlock}>
+                <p>Размер</p>
+                <div className={styles.sizesBlock}>
+                    {
+                        sizes.map(size => {
+                            return (
+                                <button 
+                                    key={size} 
+                                    name={size}
+                                    className={combineClassNames(styles.sizeBtn, selectedSize === size ? styles.selected : undefined)}
+                                    onClick={handleSizeChange}
+                                >
+                                    {size}
+                                </button>
+                            )
+                        })
+                    }
+                </div>
+                <p>Количество</p>
                 <div className={styles.quantityBlock}>
                     <div className={styles.manipulations}>
                         <button name='decrement' onClick={handleCountUnitChange}>

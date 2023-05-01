@@ -1,4 +1,5 @@
 import { T_Category } from "store/categories/types"
+
 import { SET_PRODUCTS } from "./actionTypes"
 
 export type T_ProductsState = {
@@ -14,6 +15,10 @@ export type T_Product = {
     imageUrl: string
     categoryId: T_Category['id']
     description: string
+    sizes: string[]
+    quantityPerPack: number
+    originCountry: string
+    measureUnit: string
 }
 
 export type T_SetProducts = (products: T_ProductsState) => ({

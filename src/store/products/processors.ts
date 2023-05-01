@@ -1,6 +1,7 @@
 import { G_NormalizedState } from "helpers/types";
-import { T_SheetRowResponse } from "../../api/sheets/types";
 import { T_Product, T_ProductsState } from "store/products/types";
+
+import { T_SheetRowResponse } from "../../api/sheets/types";
 
 export const processProductsData = (data: T_SheetRowResponse[]): G_NormalizedState<T_Product> => {
     let result: T_ProductsState = {
@@ -20,12 +21,27 @@ export const processProductsData = (data: T_SheetRowResponse[]): G_NormalizedSta
 }
 
 const processSheetRow = (data: T_SheetRowResponse): T_Product => {
-    const [id, name, imageUrl, categoryId, description] = data
+    const [
+        id, 
+        name, 
+        imageUrl, 
+        categoryId, 
+        description, 
+        sizes, 
+        quantityPerPack, 
+        originCountry, 
+        measureUnit
+    ] = data
+
     return {
         id,
         name,
-        description,
+        description: description || "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
         imageUrl,
-        categoryId
-    }    
+        categoryId,
+        sizes: sizes.split(', '),
+        measureUnit,
+        originCountry,
+        quantityPerPack: +quantityPerPack
+    }
 }
