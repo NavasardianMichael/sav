@@ -28,7 +28,7 @@ export const EmailTemplate: FC<T_Props> = ({values, products, orders}) => {
                     orders.map(order => {
                         const product = products.byId[order.productId]
                         return (
-                            <p key={order.productId}>
+                            <p key={order.id}>
                                 {product.name}: <b>&times; {order.quantity}</b>
                             </p>                            
                         )

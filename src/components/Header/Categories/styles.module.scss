@@ -6,7 +6,6 @@
     justify-content: center;
     gap: .5rem;
     height: 25%;
-    text-transform: capitalize;
     width: 100%;
     background-color: var(--tertiary-color);
     
@@ -63,7 +62,7 @@
             background-color: #fff;
             box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
             transition: .3s;
-            min-width: 200px;
+            min-width: 300px;
 
             // @media (hover: hover) {
                 &:hover {

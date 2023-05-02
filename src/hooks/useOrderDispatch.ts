@@ -10,7 +10,7 @@ export const useOrderDispatch = () => {
 
     const add = (items: T_OrderItem[]) => {
         const list: T_OrderItem[] = JSON.parse(localStorage.getItem('order') as string)
-        const existingOrder = list?.find(i => i.productId=== items[0].productId)
+        const existingOrder = list?.find(i => i.id=== items[0].id)
         
         let newList: T_OrderItem[] = (
             existingOrder ?
@@ -23,16 +23,11 @@ export const useOrderDispatch = () => {
         
         dispatch(setOrderItems(newList))
     }
-    const remove = (id: T_OrderItem['id']) => {
-        const newList = removeOrder(id)
+    const remove = (order: T_OrderItem) => {
+        const newList = removeOrder(order)
         dispatch(setOrderItems(newList))
     }
     const edit = (order: T_OrderItem) => {
-        // let newList: T_OrderItem[] = (
-        //     order.quantity ?
-        //     editOrder(order) :
-        //     removeOrder(order.productId)
-        // )
         const newList = editOrder(order)
         dispatch(setOrderItems(newList))
     }

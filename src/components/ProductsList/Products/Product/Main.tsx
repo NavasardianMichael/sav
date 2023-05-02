@@ -6,22 +6,23 @@ import { T_Product } from "store/products/types";
 
 import styles from '../styles.module.scss';
 import { QuantityBlock } from './QuantityBlock';
+import { getMeasureUnitCorrectedValue } from 'helpers/functions/order';
 
 type T_Props = {
     product: T_Product
 }
 
-export const Product: FC<T_Props> = ({ product: {
-    id, 
-    name, 
-    description, 
-    imageUrl, 
-    sizes,
-    measureUnit,
-    originCountry,
-    quantityPerPack
-} }) => {
+export const Product: FC<T_Props> = ({ product }) => {
 
+    const {
+        id, 
+        name, 
+        description, 
+        imageUrl, 
+        sizes,
+        originCountry,
+        quantityPerPack
+    } = product
     const [selectedSize, setSelectedSize] = useState(sizes[0])
 
     const handleSizeChange: React.MouseEventHandler<HTMLButtonElement> = (e) => {
@@ -45,7 +46,7 @@ export const Product: FC<T_Props> = ({ product: {
                     </div>
                     <div className={styles.charValues}>
                         <div>{originCountry}</div>
-                        <div>{quantityPerPack} {measureUnit}</div>
+                        <div>{quantityPerPack} {getMeasureUnitCorrectedValue(product)}</div>
                     </div>
                 </div>
             </div>
@@ -72,7 +73,7 @@ export const Product: FC<T_Props> = ({ product: {
                         </div>                    
                     </>
                 }
-                <QuantityBlock id={id} />
+                <QuantityBlock id={id} size={selectedSize} />
             </div>
         </div>
     )

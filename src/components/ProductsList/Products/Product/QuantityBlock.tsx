@@ -6,10 +6,11 @@ import { useOrderDispatch } from 'hooks/useOrderDispatch';
 import { T_Product } from 'store/products/types';
 
 import styles from '../styles.module.scss';
+import { T_OrderItem } from 'store/order/types';
 
-type T_Props = Pick<T_Product, 'id'>
+type T_Props = Pick<T_Product, 'id'> & Pick<T_OrderItem, 'size'>
 
-export const QuantityBlock: FC<T_Props> = ({ id }) => {
+export const QuantityBlock: FC<T_Props> = ({ id, size }) => {
 
     const { add } = useOrderDispatch()
     const [count, setCount] = useState('1')
@@ -32,8 +33,9 @@ export const QuantityBlock: FC<T_Props> = ({ id }) => {
     const handleCountApply: React.MouseEventHandler<HTMLButtonElement> = (e) => {
         const { name } = e.currentTarget
         add([{
-            id: Date.now().toString(),
+            id: `${name}-${size}`,
             productId: name,
+            size,
             quantity: +count
         }])
     }

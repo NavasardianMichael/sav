@@ -9,7 +9,7 @@
         display: flex;
         flex-wrap: wrap;
         
-        @include md-max {
+        @include sm-min {
             gap: 2rem;
             .imgBlock {
                 width: calc(50% - 1rem);
@@ -24,7 +24,7 @@
             }
         }
 
-        @include md-min {
+        @include lg-min {
             gap: 1rem;
             .imgBlock {
                 width: calc(20% - 2rem);
@@ -36,6 +36,23 @@
     
             .optionsBlock {
                 width: 30%;
+            }
+        }
+
+        @include sm-max {
+            gap: 1rem;
+            .imgBlock {
+                max-height: 300px;
+                img {
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+    
+            .imgBlock,
+            .optionsBlock,
+            .detailsBlock {
+                width: 100%;
             }
         }
 
@@ -84,7 +101,7 @@
             .quantityBlock {
 
                 display: flex;
-                align-items: center;
+                align-items: stretch;
                 gap: 1rem;
                 
                 .manipulations {
@@ -94,23 +111,14 @@
                     border-radius: 8px;
                     overflow: hidden;
                     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                    background-color: var(--btn-background-color);
                 }
                 
-                .application {
-                    button {
-                        text-align: center;
-                        border: 2px solid transparent;
-                        background-color: var(--btn-background-color);
-                        border-radius: 8px;
-                        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-                    }
-                }
-
                 button {
                     all: unset;
                     padding: .5rem;
                     cursor: pointer;
-                    background-color: var(--btn-background-color);
+                    background-color: transparent;
                     color: var(--btn-color);
                     transition: .2s;
                     
@@ -122,6 +130,17 @@
                     }
                 }
 
+                .application {
+                    background-color: var(--btn-background-color);
+                    button {
+                        text-align: center;
+                        border: 2px solid transparent;
+                        border-radius: 8px;
+                        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                    }
+                }
+
+
                 * {
                     vertical-align: middle;
                 }
@@ -130,7 +149,7 @@
                     padding: .5rem;
                     font-size: 1rem;
                     border: 2px solid transparent;
-                    background-color: var(--btn-background-color);
+                    background-color: transparent;
                     color: var(--btn-hover-color);
                     width: 40px;
                     outline: none;
@@ -169,12 +188,12 @@
                     display: block;
                     text-align: center;
                     min-width: 60px;
-                    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 2px;
                     transition: .2s;
                     
                     &.selected {
                         border-color: var(--btn-color);
-                        box-shadow: var(--btn-color) 0px 1px 2px;
+                        box-shadow: none;
                     }
 
                     @media (hover: hover) {

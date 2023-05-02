@@ -50,7 +50,8 @@ export const OrderList: FC = () => {
 
     const handleRemoveOrderClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
         const orderId = e.currentTarget.getAttribute('data-orderid') as T_OrderItem['id']
-        remove(orderId)
+        const order = orders.find(order => order.id === orderId) as T_OrderItem
+        remove(order)
     }
 
     const handleCountInputBlur: React.FocusEventHandler<HTMLInputElement> = (e) => {
@@ -73,13 +74,24 @@ export const OrderList: FC = () => {
         setOrderDetailsOpened(true)
     }
 
+    const handleResetOrders = () => {
+        orders.forEach(order => {
+            remove(order)
+        })
+    }
+
 
     return (
         <div className={styles.ordersBlock}>
-            <h2 className={sharedStyles['h-lg']}>Корзина ({count})</h2>
+            <div className={styles.header}>
+                <h2 className={sharedStyles['h-lg']}>Корзина ({count})</h2>
+                {!!orders?.length && <button onClick={handleResetOrders}>Очистить корзину</button>}
+            </div>
             <div className={styles.ordersList}>
                 {
                     orders.map(order => {
+                        console.log({order});
+                        
                         return (
                             <Item 
                                 key={order.id}

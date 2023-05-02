@@ -27,9 +27,10 @@ type T_Props = {
     }>
     emailSubject: string
     pendingSettings: T_PendingSettings
+    emailSentCallback?: () => void
 }
 
-export const ContactForm: FC<T_Props> = ({ EmailTemplate, SuccessMessageTemplate, emailSubject, pendingSettings }) => {
+export const ContactForm: FC<T_Props> = ({ EmailTemplate, SuccessMessageTemplate, emailSubject, pendingSettings, emailSentCallback }) => {
 
     const dispatch = useDispatch()
     const [showSuccessMessage, setShowSuccessMessage] = useState(false)
@@ -68,6 +69,7 @@ export const ContactForm: FC<T_Props> = ({ EmailTemplate, SuccessMessageTemplate
                 <EmailTemplate values={values} orders={orderList} products={products}  />
             ),
         })
+        emailSentCallback?.()
         dispatch(setAppearanceOptions({[pendingSettings.statusKey]: false}))
         setShowSuccessMessage(true)
     }

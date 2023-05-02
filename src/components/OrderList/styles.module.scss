@@ -1,42 +1,89 @@
+@import 'assets/styles/_mixins.scss';
+
 .ordersBlock {
 
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        button {
+            all: unset;
+            padding: 0.5rem;
+            color: #FFF;
+            background-color: var(--tertiary-color);
+            border-radius: 4px;
+            cursor: pointer;
+            max-width: 500px;
+            transition: .2s;
+            
+            @media (hover: hover) {
+                &:hover {
+                    background-color: var(--secondary-color);
+                }
+            }
+        }
+    }
+    
     .ordersList {
         display: flex;
         flex-direction: column;
         gap: 2rem;
-
+        
         .order {
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
-            align-items: center;
+            align-items: start;
             box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
             padding: 1rem;
-
-            button {
-                all: unset;
-                padding: .5rem;
-                cursor: pointer;
-                color: var(--btn-color);
-                transition: .2s;
-                
-                @media (hover: hover) {
-                    &:hover {
-                        color: var(--btn-hover-color);
+            
+            .removeOrderCol {
+                button {
+                    all: unset;
+                    margin: auto;
+                    padding: .5rem;
+                    cursor: pointer;
+                    color: var(--btn-color);
+                    transition: .2s;
+                    
+                    @media (hover: hover) {
+                        &:hover {
+                            color: var(--btn-hover-color);
+                        }
                     }
                 }
             }
 
-            .nameCol {
+
+            .detailsCol {
                 color: var(--primary-color);
                 min-width: 200px;
+
+                .name {
+                    margin-top: 0;
+                    margin-bottom: 1rem;
+                    font-size: 1.5rem;
+                }
+
+                .characteristics {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+                    
+                    & > div {
+                        display: flex;
+                        flex-direction: column;
+                        gap: .25rem;
+                    }
+                }
             }
 
             .imgCol {
                 
                 img {
                     box-shadow: var(--lighter-box-shadow);
-                    max-height: 120px;
+                    max-height: 138px;
                 }
             }
 
@@ -44,17 +91,37 @@
                 display: flex;
                 align-items: center;
                 border-radius: 8px;
-                gap: 1rem;
+                gap: .5rem;
                 background-color: var(--btn-background-color);
                 box-shadow: var(--lighter-box-shadow);
                 
+                button {
+                    all: unset;
+                    padding: .5rem;
+                    cursor: pointer;
+                    color: var(--btn-color);
+                    transition: .2s;
+                    
+                    @media (hover: hover) {
+                        &:hover {
+                            color: var(--btn-hover-color);
+                            background-color: var(--btn-hover-background-color);
+                        }
+                    }
+                }
+
+                * {
+                    vertical-align: middle;
+                }
+                
                 input {
-                    background-color: var(--btn-background-color);
                     padding: .5rem;
                     font-size: 1rem;
-                    width: 40px;
+                    border: 2px solid transparent;
+                    background-color: transparent;
+                    color: var(--btn-hover-color);
+                    width: 60px;
                     outline: none;
-                    border: none;
 
                     /* Chrome, Safari, Edge, Opera */
                     &::-webkit-outer-spin-button,
@@ -70,7 +137,7 @@
                 }
             }
 
-            .nameCol {
+            .detailsCol {
                 max-width: 50%;
             }
         }

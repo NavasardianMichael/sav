@@ -8,6 +8,7 @@ export type T_OrderState = {
 export type T_OrderItem = {
     id: string
     productId: T_Product['id']
+    size: T_Product['sizes'][number]
     quantity: number
 }
 
