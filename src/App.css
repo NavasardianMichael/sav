@@ -4,6 +4,10 @@
   --tertiary-color: #0396a8;
   --lighter-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   --darker-box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 12px;
+  --btn-background-color: rgba(240,242,245,.5);
+  --btn-color: rgba(91,108,143,1);
+  --btn-hover-color: rgb(64, 75, 99);
+  --btn-hover-background-color: rgba(240,242,245,1);
 }
 
 body,

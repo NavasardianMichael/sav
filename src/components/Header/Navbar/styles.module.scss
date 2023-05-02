@@ -27,7 +27,7 @@
             position: absolute;
             width: 20px;
             height: 20px;
-            right: -15px;
+            right: -18px;
             top: -10px;
             font-size: .9rem;
             line-height: 1.2;
@@ -36,7 +36,7 @@
             &.animating {
                 @keyframes circleScale {
                     0% {transform: scale(1)  }
-                    50% { transform: scale(.5) }
+                    50% { transform: scale(.7) }
                   100% { transform: scale(1) }
                 }
                 animation: circleScale .5s infinite;
