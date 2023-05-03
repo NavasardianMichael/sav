@@ -10,10 +10,14 @@ import { setAppearanceOptions } from "store/appearance/actionCreators";
 import { Loader } from "components/Loader/Main";
 import { T_PendingSettings } from "helpers/types";
 import { useSelector } from "react-redux";
+import { selectCategories } from "store/categories/selectors";
+import { T_CategoriesState } from "store/categories/types";
 import { selectOrderList } from "store/order/selectors";
 import { T_OrderState } from "store/order/types";
 import { selectProducts } from "store/products/selectors";
 import { T_ProductsState } from "store/products/types";
+import { selectSubCategories } from "store/subCategories/selectors";
+import { T_SubCategoriesState } from "store/subCategories/types";
 import styles from './styles.module.scss';
 
 type G_ContactFormUtil<T> = {[key in (typeof CONTACT_FORM_TEMPLATE[number])['name']]: T} 
@@ -23,6 +27,8 @@ type T_Props = {
     EmailTemplate: FC<{
         values: G_ContactFormUtil<string>
         products: T_ProductsState
+        categories: T_CategoriesState
+        subCategories: T_SubCategoriesState
         orders: T_OrderState['list']
     }>
     emailSubject: string
@@ -34,6 +40,8 @@ export const ContactForm: FC<T_Props> = ({ EmailTemplate, SuccessMessageTemplate
 
     const dispatch = useDispatch()
     const [showSuccessMessage, setShowSuccessMessage] = useState(false)
+    const categories = useSelector(selectCategories)
+    const subCategories = useSelector(selectSubCategories)
     const products = useSelector(selectProducts)
     const orderList = useSelector(selectOrderList)
 
@@ -66,7 +74,13 @@ export const ContactForm: FC<T_Props> = ({ EmailTemplate, SuccessMessageTemplate
         await sendEmail({
             subject: emailSubject,
             body: ReactDOMServer.renderToStaticMarkup(
-                <EmailTemplate values={values} orders={orderList} products={products}  />
+                <EmailTemplate 
+                    values={values} 
+                    orders={orderList} 
+                    products={products}
+                    categories={categories}  
+                    subCategories={subCategories}  
+                />
             ),
         })
         emailSentCallback?.()
