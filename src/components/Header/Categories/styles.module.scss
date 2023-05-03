@@ -11,9 +11,18 @@
     
     .categoryBlock {
         height: 100%;
-        padding-left: .5rem;
-        padding-right: .5rem;
         position: relative;
+
+        @include sm-min {
+            padding-left: .5rem;
+            padding-right: .5rem;
+        }
+        
+        @include sm-max {
+            padding-left: .25rem;
+            padding-right: .25rem;
+            font-size: 0.9rem;
+        }
 
         @include md-max {
             &:nth-of-type(1) .subCategories {
@@ -30,8 +39,6 @@
         & > .category {
             height: 100%;
             vertical-align: middle;
-            // padding-top: .5rem;
-            // padding-bottom: .5rem;
             color: var(--primary-color);
             box-sizing: border-box;
             display: flex;

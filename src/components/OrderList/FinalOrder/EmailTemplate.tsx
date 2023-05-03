@@ -25,7 +25,7 @@ const style: React.CSSProperties = {
 export const EmailTemplate: FC<T_Props> = ({values, products, orders, categories, subCategories}) => {
     return (
         <div>
-            <h1 style={{textAlign: 'center'}}>С.А.В. Заказ</h1>
+            <h1 style={{textAlign: 'center'}}>Заказ</h1>
             <img src='https://img.freepik.com/premium-vector/my-order-list-flat-modern-design-illustration_566886-92.jpg' style={style} />
             <h2>Список</h2>
             <div style={{marginBottom: '32px'}}>
@@ -36,12 +36,12 @@ export const EmailTemplate: FC<T_Props> = ({values, products, orders, categories
                             return (
                                 <li key={order.id}>
                                     <ul>
-                                        <li><b>Название:</b> {product.name}</li>
-                                        <li><b>Количество заказа:</b> {order.quantity} {getMeasureUnitCorrectedValue(product)}</li>
-                                        {!!order.size && <li><b>Размер:</b> {order.size}</li>}
-                                        <li><b>Количество в упаковке:</b> {product.quantityPerPack} {getMeasureUnitCorrectedValue(product)}</li>
-                                        <li><b>Категория:</b> {categories.byId[subCategories.byId[products.byId[product.id].subCategoryId].categoryId].name}</li>
-                                        <li><b>Подкатегория:</b> {subCategories.byId[products.byId[product.id].subCategoryId].name}</li>
+                                        <b>{product.name}</b>
+                                        <li style={{marginBottom: '1rem'}}><b>Количество заказа:</b> {order.quantity} {getMeasureUnitCorrectedValue(product)}</li>
+                                        {!!order.size && <li style={{marginBottom: '1rem'}}><b>Размер:</b> {order.size}</li>}
+                                        <li style={{marginBottom: '1rem'}}><b>Количество в упаковке:</b> {product.quantityPerPack} {getMeasureUnitCorrectedValue(product)}</li>
+                                        <li style={{marginBottom: '1rem'}}><b>Категория:</b> {categories.byId[subCategories.byId[products.byId[product.id].subCategoryId].categoryId].name}</li>
+                                        <li style={{marginBottom: '1rem'}}><b>Подкатегория:</b> {subCategories.byId[products.byId[product.id].subCategoryId].name}</li>
                                     </ul>
                                 </li>                            
                             )
@@ -61,7 +61,6 @@ export const EmailTemplate: FC<T_Props> = ({values, products, orders, categories
                     })
                 }
             </div>
-            <img src='https://sav.am/wp-content/uploads/2021/09/50805196_390639838164141_8185031274633625600_n.png' style={style} />
         </div>
     )
 }
