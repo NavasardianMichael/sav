@@ -1,11 +1,23 @@
 @import 'assets/styles/_mixins.scss';
 
 .ordersBlock {
+    min-height: 39vh;
 
     .header {
         display: flex;
+        gap: 1.5rem;
         justify-content: space-between;
         align-items: center;
+
+        @include sm-max {
+            flex-direction: column;
+        }
+
+        h2 {
+            @include sm-max {
+                margin-bottom: 0;
+            }
+        }
 
         button {
             all: unset;
@@ -16,6 +28,10 @@
             cursor: pointer;
             max-width: 500px;
             transition: .2s;
+
+            @include sm-max {
+                margin-bottom: 2rem;
+            }
             
             @media (hover: hover) {
                 &:hover {
@@ -179,4 +195,9 @@
     height: fit-content;
     box-shadow: var(--lighter-box-shadow);
     padding: 2rem;
+
+    @include md-max {
+        width: 90%;
+        padding: 1rem;
+    }
 }

@@ -90,8 +90,6 @@ export const OrderList: FC = () => {
             <div className={styles.ordersList}>
                 {
                     orders.map(order => {
-                        console.log({order});
-                        
                         return (
                             <Item 
                                 key={order.id}

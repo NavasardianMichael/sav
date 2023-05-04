@@ -25,7 +25,7 @@ const processSheetRow = (data: T_SheetRowResponse): T_SubCategory => {
     return {
         id,
         name,
-        productIds: productIds.split(','),
+        productIds: productIds.split(', '),
         categoryId
     }    
 }

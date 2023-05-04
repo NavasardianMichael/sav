@@ -10,10 +10,10 @@
         box-shadow: var(--lighter-box-shadow);
         padding: 1rem;
 
-        @include lg-min {
+        @include xl-min {
             width: calc((100% - 2rem) / 3);
         }
-        @include md-lg {
+        @include lg-xl {
             width: calc((100% - 1rem) / 2);
         }
         @include md-max {

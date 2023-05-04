@@ -69,7 +69,7 @@ export const ContactForm: FC<T_Props> = ({ EmailTemplate, SuccessMessageTemplate
         setValidities(currentValidities)
 
         if(Object.values(currentValidities).includes(true)) return;
-        console.log('pending!!!')
+
         dispatch(setAppearanceOptions({[pendingSettings.statusKey]: true}))
         await sendEmail({
             subject: emailSubject,

@@ -29,21 +29,22 @@ export const EmailTemplate: FC<T_Props> = ({values, products, orders, categories
             <img src='https://img.freepik.com/premium-vector/my-order-list-flat-modern-design-illustration_566886-92.jpg' style={style} />
             <h2>Список</h2>
             <div style={{marginBottom: '32px'}}>
-                <ol>
+                <ol style={{paddingLeft: 0}}>
                     {
                         orders.map(order => {
                             const product = products.byId[order.productId]
+                            const multiplePerPack = product.quantityPerPack !== 1
                             return (
-                                <li key={order.id}>
-                                    <ul>
-                                        <b>{product.name}</b>
-                                        <li style={{marginBottom: '1rem'}}><b>Количество заказа:</b> {order.quantity} {getMeasureUnitCorrectedValue(product)}</li>
-                                        {!!order.size && <li style={{marginBottom: '1rem'}}><b>Размер:</b> {order.size}</li>}
-                                        <li style={{marginBottom: '1rem'}}><b>Количество в упаковке:</b> {product.quantityPerPack} {getMeasureUnitCorrectedValue(product)}</li>
-                                        <li style={{marginBottom: '1rem'}}><b>Категория:</b> {categories.byId[subCategories.byId[products.byId[product.id].subCategoryId].categoryId].name}</li>
-                                        <li style={{marginBottom: '1rem'}}><b>Подкатегория:</b> {subCategories.byId[products.byId[product.id].subCategoryId].name}</li>
+                                <li key={order.id} style={{marginBottom: '1rem'}}>
+                                    <ul style={{paddingLeft: '12px'}}>
+                                        <h3>{product.name} (идентификатор: {product.id})</h3>
+                                        <li><b>Количество заказа:</b> {order.quantity} {getMeasureUnitCorrectedValue(product)}</li>
+                                        {!!order.size && <li><b>Размер:</b> {order.size}</li>}
+                                        {multiplePerPack && <li><b>Количество в упаковке:</b> {product.quantityPerPack} {getMeasureUnitCorrectedValue(product)}</li>}
+                                        <li><b>Категория:</b> {categories.byId[subCategories.byId[products.byId[product.id].subCategoryId].categoryId].name}</li>
+                                        <li><b>Подкатегория:</b> {subCategories.byId[products.byId[product.id].subCategoryId].name}</li>
                                     </ul>
-                                </li>                            
+                                </li>
                             )
                         })
                     }

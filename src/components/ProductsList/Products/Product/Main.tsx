@@ -24,6 +24,7 @@ export const Product: FC<T_Props> = ({ product }) => {
         quantityPerPack
     } = product
     const [selectedSize, setSelectedSize] = useState(sizes[0])
+    const multiplePerPack = quantityPerPack !== 1
 
     const handleSizeChange: React.MouseEventHandler<HTMLButtonElement> = (e) => {
         e.stopPropagation()
@@ -42,17 +43,17 @@ export const Product: FC<T_Props> = ({ product }) => {
                 <div className={styles.characteristics}>
                     <div className={styles.charNames}>
                         <div><b>Страна производства:</b> </div>
-                        <div><b>Количество в упаковке:</b></div>
+                        {multiplePerPack && <div><b>Количество в упаковке:</b></div>}
                     </div>
                     <div className={styles.charValues}>
                         <div>{originCountry}</div>
-                        <div>{quantityPerPack} {getMeasureUnitCorrectedValue(product)}</div>
+                        {multiplePerPack && <div>{quantityPerPack} {getMeasureUnitCorrectedValue(product)}</div>}
                     </div>
                 </div>
             </div>
             <div className={styles.optionsBlock}>
                 {
-                    !!sizes?.length && 
+                    sizes?.length > 1 && 
                     <>
                         <p>Размер</p>
                         <div className={styles.sizesBlock}>

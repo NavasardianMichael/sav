@@ -6,9 +6,5 @@
     
     .currentPageContent {
         padding: 0 2rem 2rem 2rem;
-
-        @include sm-max {
-            padding: 1rem;
-        }
     }
 }

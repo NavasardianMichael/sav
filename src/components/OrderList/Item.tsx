@@ -16,6 +16,8 @@ type T_Props = {
 }
 
 export const Item: FC<T_Props> = ({ order, product, handleCountChange, handleCountInputBlur, handleCountUnitChange, handleRemoveButtonClick }) => {
+    const multiplePerPack = product.quantityPerPack !== 1
+
     return (
         <div className={styles.order}>
             <div className={styles.removeOrderCol}>
@@ -31,12 +33,12 @@ export const Item: FC<T_Props> = ({ order, product, handleCountChange, handleCou
                 <div className={styles.characteristics}>
                     <div>
                         <div><b>Страна производства: </b> </div>
-                        <div><b>Количество в упаковке: </b></div>
+                        {multiplePerPack && <div><b>Количество в упаковке: </b></div>}
                         {!!order.size && <div><b>Размер: </b></div>}
                     </div>
                     <div>
                         <div>{product.originCountry}</div>
-                        <div>{product.quantityPerPack} {getMeasureUnitCorrectedValue(product)}</div>
+                        {multiplePerPack && <div>{product.quantityPerPack} {getMeasureUnitCorrectedValue(product)}</div>}
                         {!!order.size && <div>{order.size}</div>}
                     </div>
                 </div>

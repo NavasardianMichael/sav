@@ -76,10 +76,14 @@
                 text-align: center;
                 padding: .5rem;
                 color: #FFF;
+                margin: auto;
                 background-color: var(--tertiary-color);
                 border-radius: 4px;
                 cursor: pointer;
                 transition: .3s;
+                width: 100%;
+                max-width: 500px;
+                box-sizing: border-box;
 
                 @media (hover: hover) {
                     &:hover {

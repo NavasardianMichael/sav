@@ -1,5 +1,5 @@
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useMemo, useState } from 'react';
 import { LinkList } from './LinkList';
 import { useDispatch } from 'react-redux';
 import { setAppearanceOptions } from 'store/appearance/actionCreators';
@@ -14,6 +14,7 @@ export const Navbar: FC = () => {
 
     const dispatch = useDispatch()
     const activePage = useSelector(selectActivePage)
+    const isHomePage = useMemo(() => activePage === APP_PAGES.home, [activePage])
     const count = useOrderCount()
     
     const handleClick = () => {
@@ -32,11 +33,11 @@ export const Navbar: FC = () => {
     }, [count])
 
     return (
-        <div className={combineClassNames(styles.navbar, activePage === APP_PAGES.home ? styles.home: styles.order)}>
-            {activePage === APP_PAGES.home && <LinkList />}
+        <div className={combineClassNames(styles.navbar, isHomePage ? styles.home: styles.order)}>
+            {isHomePage && <LinkList />}
             <div className={styles.link} onClick={handleClick}>
                 <div className={combineClassNames(styles.orderIcon, isAnimating ? styles.animating : undefined)}>
-                    <ShoppingCartIcon fontSize='medium' />
+                    <ShoppingCartIcon fontSize={isHomePage ? 'medium' : 'large'} />
                     {
                         !!count &&
                         <div className={styles.badge}>
