@@ -9,6 +9,7 @@ import { selectActivePage } from 'store/appearance/selectors';
 import { combineClassNames } from 'helpers/functions/commons';
 import { useOrderCount } from 'hooks/useOrderCount';
 import styles from './styles.module.scss';
+import { Search } from 'components/Search/Main';
 
 export const Navbar: FC = () => {
 
@@ -34,7 +35,14 @@ export const Navbar: FC = () => {
 
     return (
         <div className={combineClassNames(styles.navbar, isHomePage ? styles.home: styles.order)}>
-            {isHomePage && <LinkList />}
+            {
+                isHomePage && (
+                    <>
+                        <LinkList />
+                        <Search />
+                    </>
+                )
+            }
             <div className={styles.link} onClick={handleClick}>
                 <div className={combineClassNames(styles.orderIcon, isAnimating ? styles.animating : undefined)}>
                     <ShoppingCartIcon fontSize={isHomePage ? 'medium' : 'large'} />

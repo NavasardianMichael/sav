@@ -9,6 +9,7 @@ import { fetchCategories } from 'store/categories/actionCreators';
 import { fetchProducts } from 'store/products/actionCreators';
 import { fetchSubCategories } from 'store/subCategories/actionCreators';
 import './App.css';
+import { TopRedirect } from 'components/TopRedirect/Main';
 
 const App: FC = () => {
   const dispatch = useAppDispatch()
@@ -24,6 +25,7 @@ const App: FC = () => {
       <Header />
       <Content />
       <Chat />
+      <TopRedirect />
       <Loader statusKey='isFetchingMainData' allPage />
     </div>
   );

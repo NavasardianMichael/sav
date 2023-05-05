@@ -1,4 +1,4 @@
-import LogoSvg from 'assets/images/logo.svg';
+import LogoIcon from 'assets/images/logo-sav-medical.jpeg';
 import styles from './styles.module.scss';
 import { useDispatch } from 'react-redux';
 import { setAppearanceOptions } from 'store/appearance/actionCreators';
@@ -13,7 +13,7 @@ export const Logo = () => {
     
     return (
         <div className={styles.logo}>
-            <img src={LogoSvg} alt='Logo' onClick={handleClick}/>
+            <img src={LogoIcon} alt='Logo' onClick={handleClick}/>
         </div>
     )
 }

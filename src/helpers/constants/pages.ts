@@ -3,17 +3,25 @@ export const HOME_PAGE_SECTIONS = {
         about: {
             id: 'about',
             name: 'О нас',
+            hideOnMobile: false
+        },
+        orderInstructions: {
+            id: 'orderInstructions',
+            name: 'Как заказать?',
+            hideOnMobile: true
         },
         contact: {
             id: 'contact',
             name: 'Обратная свазь',
+            hideOnMobile: false
         },
         testimonials:  {
             id: 'testimonials',
             name: 'Отзывы',
+            hideOnMobile: false
         },
     },
-    allIds: ['about', 'contact', 'testimonials']
+    allIds: ['about', 'orderInstructions', 'contact', 'testimonials']
 } as const
 
 export const APP_PAGES = {

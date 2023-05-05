@@ -105,7 +105,7 @@ export const OrderList: FC = () => {
                 }
             </div>
             { !!count && <button className={styles.orderBtn} onClick={openOrderDetails}>Заказать</button> }
-            <Portal opened={orderDetialsOpened} className={styles.finalOrder} setOrderDetailsOpened={setOrderDetailsOpened}>
+            <Portal opened={orderDetialsOpened} className={styles.finalOrder} setOpenedStatus={setOrderDetailsOpened}>
                 <FinalOrder 
                     key='order-details-portal-content'
                     opened={orderDetialsOpened}

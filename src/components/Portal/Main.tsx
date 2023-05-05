@@ -7,12 +7,12 @@ import styles from './styles.module.scss';
 
 type T_Props = {
     opened: boolean
+    setOpenedStatus: React.Dispatch<React.SetStateAction<boolean>>
     children: JSX.Element | JSX.Element[]
     className?: string
-    setOrderDetailsOpened: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const Portal: FC<T_Props> = ({ opened, children, className, setOrderDetailsOpened }) => {
+export const Portal: FC<T_Props> = ({ opened, children, className, setOpenedStatus }) => {
 
     const ContentRef = useRef<HTMLDivElement>(null)
     const Container = useMemo(() => {
@@ -20,7 +20,7 @@ export const Portal: FC<T_Props> = ({ opened, children, className, setOrderDetai
         if(node) return node;
         const containerNode = document.createElement('div') as HTMLDivElement
         containerNode.id = 'portal'
-        document.getElementById('root')?.appendChild(containerNode)
+        document.body.appendChild(containerNode)
         return containerNode
     }, [])
 
@@ -30,7 +30,7 @@ export const Portal: FC<T_Props> = ({ opened, children, className, setOrderDetai
         const hidePortal = (e: any) => {
             e.stopPropagation()
             if (ContentRef.current && !ContentRef.current.contains(e.target)) {
-                setOrderDetailsOpened(false);
+                setOpenedStatus(false);
             }
         }
         

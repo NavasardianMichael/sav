@@ -1,0 +1,155 @@
+@import 'assets/styles/_mixins.scss';
+
+.search {
+    .searchBtn {
+        all: unset;
+        transition: .3s;
+        padding: 1rem;
+        vertical-align: middle;
+        cursor: pointer;
+        
+        @include sm-max {
+            padding: .5rem;
+        }
+        
+        svg {
+            color: var(--primary-color); 
+            height: 100%;
+            vertical-align: middle;
+        }
+
+        @media (hover: hover) {
+            &:hover,
+            &.active {
+                color: var(--secondary-color);
+            }
+        }
+    }
+
+}
+
+.searchModal {
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+    max-height: 36vh;
+    box-shadow: var(--lighter-box-shadow);
+    padding: 2rem;
+
+    @include md-max {
+        padding: 1rem;
+    }
+
+    .searchBox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 5rem;
+        box-sizing: border-box;
+        font-size: 1rem;
+
+        @include sm-max {
+            justify-content: left;
+        }
+
+        .closeModalBtn {
+            all: unset;
+            position: absolute;
+            right: .5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: .3s;
+            padding: .5rem;
+            box-sizing: border-box;
+            vertical-align: middle;
+            cursor: pointer;
+            color: var(--primary-color);
+            
+            @include sm-max {
+                padding: .5rem;
+            }
+            
+            svg {
+                color: inherit; 
+                height: 100%;
+                vertical-align: middle;
+            }
+
+            @media (hover: hover) {
+                &:hover,
+                &.active {
+                    color: var(--secondary-color);
+                }
+            }
+    
+        }
+
+        .queryInput {
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: var(--lighter-box-shadow);
+            border: 1px solid lightgray;
+            width: calc(100% - 3rem);
+            max-width: 600px;
+            font-size: inherit;
+
+            &:focus-within {
+                outline: initial;
+                border: 1px solid primary;
+            }
+
+            @include sm-max {
+                padding: .5rem;
+            }
+        }
+        
+        .suggestions {
+            position: absolute;
+            top: calc(7rem + 1px);
+            justify-content: center;
+            width: calc(100% - 3rem);
+            max-width: 600px;
+            max-height: 60vh;
+            overflow-y: auto;
+            background-color: #fff;
+            scrollbar-color: var(--tertiary-color) #fff;
+            scrollbar-width: thin;
+
+            @include sm-max {
+                width: 100%;
+                left: 0;
+            }
+    
+            
+            &::-webkit-scrollbar {
+                width: 4px;
+            }
+    
+            &::-webkit-scrollbar-thumb {
+                background-color: var(--tertiary-color);
+            }
+
+            .suggestion {
+                all: unset;
+                cursor: pointer;
+                display: block;
+                text-decoration: none;
+                color: var(--primary-color);
+                width: 100%;
+                box-sizing: border-box;
+                transition: .1s;
+                padding: 1rem;
+
+                &:hover {
+                    background-color: var(--tertiary-color);
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+}

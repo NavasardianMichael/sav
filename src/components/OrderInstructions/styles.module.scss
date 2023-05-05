@@ -1,0 +1,13 @@
+@import 'assets/styles/_mixins.scss';
+
+.orderInstructions {
+    color: var(--primary-color);
+
+    p {
+        margin: 0;
+    }
+    
+    @include sm-max {
+        display: none;
+    }
+}
