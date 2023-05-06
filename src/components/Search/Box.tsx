@@ -1,8 +1,11 @@
-import { FC, useEffect, useState } from "react"
-import styles from './styles.module.scss';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import { FC, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+
 import { selectProducts } from "store/products/selectors";
+
+import styles from './styles.module.scss';
 
 type T_Props = {
     opened: boolean
@@ -52,9 +55,8 @@ export const Box: FC<T_Props> = ({ opened, closeSearchModal }) => {
                                 className={styles.suggestion}
                                 onClick={handleProductClick}
                             >
-                                {
-                                    product.name
-                                }
+                                {product.name}
+                                <ArrowForwardIosIcon fontSize='small' />
                             </a>
                         )
                     })

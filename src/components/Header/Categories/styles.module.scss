@@ -8,10 +8,6 @@
     height: 25%;
     width: 100%;
     background-color: var(--tertiary-color);
-    
-    @include sm-max {
-        gap: 0.25rem;
-    }
 
     .categoryBlock {
         height: 100%;
@@ -23,8 +19,8 @@
         }
         
         @include sm-max {
-            padding-left: .25rem;
-            padding-right: .25rem;
+            padding-left: 0;
+            padding-right: 0;
         }
 
         @include md-max {
@@ -92,6 +88,9 @@
             }
 
             .subCategory {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
                 text-decoration: none;
                 color: var(--primary-color);
                 padding: .5rem;

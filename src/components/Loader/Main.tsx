@@ -1,9 +1,11 @@
+import { FC } from "react";
+import { useSelector } from "react-redux";
+
 import { ReactComponent as LoaderSvg } from 'assets/images/loader.svg';
 import { combineClassNames } from "helpers/functions/commons";
 import { T_PendingSettings } from 'helpers/types';
 import { RootState } from "index";
-import { FC } from "react";
-import { useSelector } from "react-redux";
+
 import styles from './styles.module.css';
 
 type T_Props = T_PendingSettings

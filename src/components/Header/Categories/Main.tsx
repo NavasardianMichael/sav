@@ -1,8 +1,11 @@
-import { hasObjAnyKey } from 'helpers/functions/commons'
-import { useSelector } from 'react-redux'
-import { selectCategories } from 'store/categories/selectors'
-import { selectSubCategories } from 'store/subCategories/selectors'
-import styles from './styles.module.scss'
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { useSelector } from 'react-redux';
+
+import { hasObjAnyKey } from 'helpers/functions/commons';
+import { selectCategories } from 'store/categories/selectors';
+import { selectSubCategories } from 'store/subCategories/selectors';
+
+import styles from './styles.module.scss';
 
 export const Categories = () => {
     const categories = useSelector(selectCategories)
@@ -29,6 +32,7 @@ export const Categories = () => {
                                                 className={styles.subCategory}
                                             >
                                                 {subCategory?.name}
+                                                <ArrowForwardIosIcon fontSize='small' />
                                             </a>
                                         )
                                     })

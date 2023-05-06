@@ -7,10 +7,6 @@
     top: 0;
 }
 
-.loader.allPage {
-    height: 100vh;
-}
-
 .loader .overlay {
     position: absolute;
     top: 0;
