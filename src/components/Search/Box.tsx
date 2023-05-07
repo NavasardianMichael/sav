@@ -47,7 +47,7 @@ export const Box: FC<T_Props> = ({ opened, closeSearchModal }) => {
                 {
                     products.allIds.map(id => {
                         const product = products.byId[id]
-                        if(!query || product.name.indexOf(query) === -1) return null;
+                        if(!query || product.name.toLowerCase().indexOf(query.toLowerCase()) === -1) return null;
                         return (
                             <a 
                                 key={product.id}

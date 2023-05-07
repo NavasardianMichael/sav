@@ -119,14 +119,15 @@
             max-height: 60vh;
             overflow-y: overlay;
             background-color: #fff;
-            scrollbar-color: var(--tertiary-color) #fff;
-            scrollbar-width: thin;
-
+            z-index: 4;
+            
             @supports (-moz-appearance:none) {
-                .container{
+                & {
+                    scrollbar-color: var(--tertiary-color) #fff;
+                    scrollbar-width: thin;
                     overflow-y: auto;
                 }
-            }            
+            }
 
             @include sm-max {
                 width: 100%;
@@ -143,8 +144,6 @@
             }
 
             .suggestion {
-                all: unset;
-                cursor: pointer;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -153,11 +152,16 @@
                 width: 100%;
                 box-sizing: border-box;
                 transition: .1s;
+                position: relative;
+                z-index: 555;
                 padding: 1rem;
-
-                &:hover {
-                    background-color: var(--tertiary-color);
-                    color: #fff;
+                
+                @media (hover: hover) {
+                    &:hover {
+                        cursor: pointer;
+                        background-color: var(--tertiary-color);
+                        color: #fff;
+                    }
                 }
             }
         }
