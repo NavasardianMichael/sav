@@ -55,7 +55,7 @@
             flex-wrap: wrap;
             gap: 2rem;
             align-items: start;
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            box-shadow: var(--lighter-box-shadow);
             padding: 1rem;
 
             @include sm-max {
@@ -188,6 +188,10 @@
 
                 .name {
                     text-align: center;
+
+                    @include sm-max {
+                        font-size: 1.5rem;
+                    }
                 }
 
                 @include sm-max {
@@ -237,6 +241,7 @@
 
     @include md-max {
         width: 90%;
+        box-sizing: border-box;
         padding: 1rem;
     }
 }

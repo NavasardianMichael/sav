@@ -111,7 +111,7 @@
                     width: fit-content;
                     border-radius: 8px;
                     overflow: hidden;
-                    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                    box-shadow: var(--lighter-box-shadow);
                     background-color: var(--btn-background-color);
                 }
                 

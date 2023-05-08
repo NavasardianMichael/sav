@@ -39,7 +39,7 @@
         height: 500px;
         border-radius: 4px;
         overflow: hidden;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        box-shadow: var(--darker-box-shadow);
         overflow-y: auto;
         background-color: #FFF;
 

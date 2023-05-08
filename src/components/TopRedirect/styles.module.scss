@@ -17,7 +17,7 @@
         background-color: var(--tertiary-color);
         cursor: pointer;
         opacity: 1;
-        transition: opacity .3s;
+        transition: .3s;
 
         &.hidden {
             opacity: 0;

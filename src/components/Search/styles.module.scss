@@ -108,11 +108,12 @@
         
         .suggestions {
             position: absolute;
-            top: calc(7rem + 1px);
+            top: 163px;
             justify-content: center;
             width: calc(100% - 3rem);
             max-width: 600px;
             max-height: 60vh;
+            box-shadow: var(--darker-box-shadow);
             overflow-y: overlay;
             background-color: #fff;
             z-index: 4;

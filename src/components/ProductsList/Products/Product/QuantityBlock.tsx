@@ -38,6 +38,7 @@ export const QuantityBlock: FC<T_Props> = ({ id, size }) => {
             size,
             quantity: +count
         }])
+        setCount('1')
     }
 
     const handleCountInputBlur: React.FocusEventHandler<HTMLInputElement> = (e) => {
