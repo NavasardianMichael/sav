@@ -27,10 +27,14 @@
             border-radius: 4px;
             cursor: pointer;
             max-width: 500px;
+            box-sizing: border-box;
             transition: .2s;
 
             @include sm-max {
                 margin-bottom: 2rem;
+                width: 100%;
+                max-width: 500px;
+                text-align: center;
             }
             
             @media (hover: hover) {
@@ -53,8 +57,28 @@
             align-items: start;
             box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
             padding: 1rem;
+
+            @include sm-max {
+               justify-content: center;
+               gap: 1rem;
+
+                .removeOrderCol {
+                    order: 2;
+                }
+                .imgCol {
+                    order: 1;
+                }
+                .detailsCol {
+                    order: 3;
+                }
+                .countCol {
+                    order: 4;
+                }
+
+            }
             
             .removeOrderCol {
+
                 button {
                     all: unset;
                     margin: auto;
@@ -96,10 +120,16 @@
             }
 
             .imgCol {
+                max-width: 200px;
                 
                 img {
                     box-shadow: var(--lighter-box-shadow);
                     max-height: 138px;
+
+                    @include sm-max {
+                        max-height: unset;
+                        width: 100%;
+                    }
                 }
             }
 
@@ -155,6 +185,15 @@
 
             .detailsCol {
                 max-width: 50%;
+
+                .name {
+                    text-align: center;
+                }
+
+                @include sm-max {
+                    width: 100%;
+                    max-width: unset;
+                }
             }
         }
     }

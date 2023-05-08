@@ -9,10 +9,6 @@
         vertical-align: middle;
         cursor: pointer;
         
-        @include sm-max {
-            padding: .35rem;
-        }
-        
         svg {
             color: var(--primary-color); 
             height: 100%;

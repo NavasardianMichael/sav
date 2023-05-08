@@ -15,7 +15,7 @@
     }
 
     @include sm-max {
-        gap: 0;
+        gap: .25rem;
     }
 
     .orderIcon {    
@@ -60,10 +60,10 @@
         padding-right: 0.5rem;
         cursor: pointer;
         
-        @include sm-max {
-            padding-left: .35rem;
-            padding-right: .35rem;
-        }
+        // @include sm-max {
+        //     padding-left: .5rem;
+        //     padding-right: .5rem;
+        // }
 
         &.hideOnMobile {
             @include sm-max {

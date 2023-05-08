@@ -64,7 +64,7 @@ export const EmailTemplate: FC<T_Props> = ({values, products, orders, categories
                         CONTACT_FORM_TEMPLATE.map(field => {
                             return (
                                 <li key={field.id} style={liStyles}>
-                                    {field.label}: {values[field.name]}
+                                    <b>{field.label}:</b> {values[field.name]}
                                 </li>
                             )
                         })
