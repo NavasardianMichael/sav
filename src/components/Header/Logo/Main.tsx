@@ -1,4 +1,4 @@
-import LogoIcon from 'assets/images/logo-sav-medical.jpeg';
+import LogoIcon from 'assets/images/logo-sav-medical.jpg';
 import styles from './styles.module.scss';
 import { useDispatch } from 'react-redux';
 import { setAppearanceOptions } from 'store/appearance/actionCreators';

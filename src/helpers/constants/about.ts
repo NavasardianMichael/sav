@@ -1,6 +1,6 @@
 import AasIndustryLogo from 'assets/images/logo-aas-industry.png';
 import SavHoldingLogo from 'assets/images/logo-sav-holding.png';
-import SavMedicalLogo from 'assets/images/logo-sav-medical.jpeg';
+import SavMedicalLogo from 'assets/images/logo-sav-medical.jpg';
 import SavGroupLogo from 'assets/images/logo.svg';
 
 export const ABOUT_SECTIONS = [
