@@ -9,6 +9,11 @@
     width: 100%;
     background-color: var(--tertiary-color);
 
+    @include sm-max {
+        gap: .4rem;
+        overflow-x: auto;
+    }
+
     .categoryBlock {
         height: 100%;
         position: relative;
