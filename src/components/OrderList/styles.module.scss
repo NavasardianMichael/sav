@@ -3,43 +3,73 @@
 .ordersBlock {
     min-height: 39vh;
 
-    .header {
-        display: flex;
-        gap: 1.5rem;
-        justify-content: space-between;
-        align-items: center;
+    .headerWrapper {
+        margin-top: 2.5rem;
 
-        @include sm-max {
-            flex-direction: column;
-        }
-
-        h2 {
-            @include sm-max {
-                margin-bottom: 0;
-            }
-        }
-
-        button {
+        .backBtn {
             all: unset;
-            padding: 0.5rem;
-            color: #FFF;
-            background-color: var(--tertiary-color);
-            border-radius: 4px;
             cursor: pointer;
-            max-width: 500px;
-            box-sizing: border-box;
-            transition: .2s;
+            color: var(--primary-color);
+            text-decoration: underline;
+            text-underline-position: under;
+            transition: .3s;
 
-            @include sm-max {
-                margin-bottom: 2rem;
-                width: 100%;
-                max-width: 500px;
-                text-align: center;
-            }
-            
             @media (hover: hover) {
                 &:hover {
-                    background-color: var(--secondary-color);
+                    color: var(--secondary-color);
+                }
+            }
+
+            @include sm-max {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        .header {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: space-between;
+            align-items: center;
+
+    
+            @include sm-max {
+                flex-direction: column;
+            }
+
+            .title {
+                margin-top: 0.5rem;
+            }
+    
+            .title {
+                @include sm-max {
+                    margin-bottom: 0;
+                }
+            }
+    
+            button {
+                all: unset;
+                padding: 0.5rem;
+                color: #FFF;
+                background-color: var(--tertiary-color);
+                border-radius: 4px;
+                cursor: pointer;
+                max-width: 500px;
+                box-sizing: border-box;
+                transition: .2s;
+    
+                @include sm-max {
+                    margin-bottom: 2rem;
+                    width: 100%;
+                    max-width: 500px;
+                    text-align: center;
+                }
+                
+                @media (hover: hover) {
+                    &:hover {
+                        background-color: var(--secondary-color);
+                    }
                 }
             }
         }

@@ -14,6 +14,7 @@ import { selectProducts } from "store/products/selectors";
 import { FinalOrder } from './FinalOrder/Main';
 import { Item } from './Item';
 import styles from './styles.module.scss';
+import { combineClassNames } from "helpers/functions/commons";
 
 export const OrderList: FC = () => {
 
@@ -96,10 +97,10 @@ export const OrderList: FC = () => {
                     className={styles.backBtn}
                     onClick={handleBackBtnClick}
                 >
-                    Продолжить покупки
+                    &#x2039; продолжить покупки
                 </button>
                 <div className={styles.header}>
-                    <h2 className={sharedStyles['h-lg']}>Корзина ({count})</h2>
+                    <h2 className={combineClassNames(sharedStyles['h-lg'], styles.title)}>Корзина ({count})</h2>
                     {!!orders?.length && <button onClick={handleResetOrders}>Очистить корзину</button>}
                 </div>
             </div>

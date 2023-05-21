@@ -10,39 +10,24 @@ type T_Func = {
 }
 
 export const getOrderLocalStorage = (key: string = 'order'): T_Func => {
-    const valueStr = localStorage.getItem(key)
-    
-    if(valueStr == null) {
-        return {
-            list: [],
-            addOrders: (v) => {
-                localStorage.setItem(key, JSON.stringify(v))
-                return v
-            },
-            editOrder: () => {
-                console.warn(`no value found in localStorage applied to "${key}" key, eventually the order cannot be edited`)
-                return []
-            },
-            removeOrder: () => {
-                console.log(`no value found in localStorage applied to "${key}" key, eventually the order cannot be removed`)
-                return []
-            },
-        }
-    }
-    
+
     return {
         list: JSON.parse(localStorage.getItem(key) as string),
         addOrders: (submittedOrders) => {
-            const currentOrders: T_OrderItem[] = JSON.parse(localStorage.getItem(key) as string)
+            const currentOrders: T_OrderItem[] = JSON.parse(localStorage.getItem(key) as string) ?? []
             const newOrders = [...currentOrders, ...submittedOrders]
+            console.log({currentOrders, submittedOrders});
+            
             localStorage.setItem(key, JSON.stringify(newOrders))
             return newOrders
         },
         editOrder: (newOrder) => {
             const currentOrders: T_OrderItem[] = JSON.parse(localStorage.getItem(key) as string)
+            console.log({newOrder});
+            
             const newOrders = currentOrders.map(currentOrder => {
-                const orderExists = newOrder.id === currentOrder.id
-                return orderExists ? newOrder : currentOrder
+                const orderExists = newOrder.id === currentOrder.id;
+                return orderExists ? currentOrder : newOrder
             })
             localStorage.setItem(key, JSON.stringify(newOrders))
             return newOrders
