@@ -1,19 +1,23 @@
 import { FC, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import sharedStyles from 'assets/styles/_shared.module.scss';
 import { Portal } from 'components/Portal/Main';
+import { APP_PAGES } from "helpers/constants/pages";
 import { useOrderCount } from "hooks/useOrderCount";
 import { useOrderDispatch } from "hooks/useOrderDispatch";
+import { setAppearanceOptions } from "store/appearance/actionCreators";
 import { selectOrderList } from "store/order/selectors";
 import { T_OrderItem } from "store/order/types";
 import { selectProducts } from "store/products/selectors";
+
 import { FinalOrder } from './FinalOrder/Main';
 import { Item } from './Item';
 import styles from './styles.module.scss';
 
 export const OrderList: FC = () => {
 
+    const dispatch = useDispatch()
     const [ orderDetialsOpened, setOrderDetailsOpened ] = useState(false)
     const products = useSelector(selectProducts)
     const orders = useSelector(selectOrderList)
@@ -80,12 +84,24 @@ export const OrderList: FC = () => {
         })
     }
 
+    const handleBackBtnClick = () => {
+        dispatch(setAppearanceOptions({activePage: APP_PAGES.home}))
+    }
+
 
     return (
         <div className={styles.ordersBlock}>
-            <div className={styles.header}>
-                <h2 className={sharedStyles['h-lg']}>Корзина ({count})</h2>
-                {!!orders?.length && <button onClick={handleResetOrders}>Очистить корзину</button>}
+            <div className={styles.headerWrapper}>
+                <button
+                    className={styles.backBtn}
+                    onClick={handleBackBtnClick}
+                >
+                    Продолжить покупки
+                </button>
+                <div className={styles.header}>
+                    <h2 className={sharedStyles['h-lg']}>Корзина ({count})</h2>
+                    {!!orders?.length && <button onClick={handleResetOrders}>Очистить корзину</button>}
+                </div>
             </div>
             <div className={styles.ordersList}>
                 {

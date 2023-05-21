@@ -21,7 +21,6 @@ export const HOME_PAGE_SECTIONS = {
             hideOnMobile: false
         },
     },
-    // <a href="https://drive.google.com/uc?export=download&id=1HkGV_e_ceCwFV8dyMcl0WP0xz7y2VLJq" download>Download</a>
     allIds: ['about', 'orderInstructions', 'contact', 'testimonials']
 } as const
 
