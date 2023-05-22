@@ -8,6 +8,10 @@
     width: 100%;
     background-color: var(--tertiary-color);
 
+    @include sm-max {
+        justify-content: space-between;
+    }
+
     .categoryBlock {
         height: 100%;
         position: relative;

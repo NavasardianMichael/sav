@@ -7,7 +7,12 @@ import { APP_PAGES } from 'helpers/constants/pages';
 export const Logo = () => {
     const dispatch = useDispatch()
     
-    const handleClick = () => {
+    const handleClick: React.MouseEventHandler<HTMLImageElement> = (e) => {
+        e.stopPropagation();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        })
         dispatch(setAppearanceOptions({activePage: APP_PAGES.home}))
     }
     

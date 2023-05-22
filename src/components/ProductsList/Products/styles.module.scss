@@ -128,16 +128,28 @@
                             color: var(--btn-hover-color);
                             background-color: var(--btn-hover-background-color);
                         }
+
+                        &:active {
+                            background-color: var(--btn-hover-active-color);
+                        }
                     }
                 }
 
                 .application {
                     background-color: var(--btn-background-color);
+
                     button {
                         text-align: center;
                         border: 2px solid transparent;
                         border-radius: 8px;
                         box-shadow: var(--lighter-box-shadow);
+                        
+                        @media (hover: hover) {
+                            &:active {
+                                background-color: var(--btn-hover-active-color);
+                                box-shadow: var(--darker-box-shadow);
+                            }
+                        }
                     }
                 }
 
@@ -202,6 +214,11 @@
                         &:hover {
                             color: var(--btn-hover-color);
                             background-color: var(--btn-hover-background-color);
+                        }
+
+                        &:active {
+                            background-color: var(--btn-hover-active-color);
+                            box-shadow: var(--darker-box-shadow);
                         }
                     }
                 }

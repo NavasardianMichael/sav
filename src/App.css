@@ -8,6 +8,7 @@
   --btn-color: rgba(91,108,143,1);
   --btn-hover-color: rgb(64, 75, 99);
   --btn-hover-background-color: rgba(240,242,245,1);
+  --btn-hover-active-color: rgba(240, 242, 245, 0.5);
 }
 
 body,
@@ -35,6 +36,12 @@ textarea {
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 28vh;
+}
+
+@media (orientation: landscape) and (hover: none) {
+  html {
+    scroll-padding-top: 40vh;
+  }
 }
 
 /* Extra small devices (phones, 600px and down) */

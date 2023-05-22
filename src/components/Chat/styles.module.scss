@@ -42,6 +42,8 @@
         box-shadow: var(--darker-box-shadow);
         overflow-y: auto;
         background-color: #FFF;
+        scrollbar-color: rgba(211, 211, 211, 0.644) #fff;
+        scrollbar-width: thin;
 
         &::-webkit-scrollbar {
             width: 4px;

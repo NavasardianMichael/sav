@@ -16,4 +16,10 @@
     box-shadow: var(--darker-box-shadow);
     height: 28vh;
     box-sizing: border-box;
+
+    @media (orientation: landscape) and (hover: none) {
+        & {
+            height: 40vh;
+        }
+    }
 }

@@ -3,6 +3,12 @@
 .content {
     position: relative;
     top: 28vh;
+
+    @media (orientation: landscape) and (hover: none) {
+        & {
+            top: 40vh;
+        }
+    }
     
     .currentPageContent {
         padding: 0 2rem 2rem 2rem;

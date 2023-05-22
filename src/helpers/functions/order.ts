@@ -10,7 +10,6 @@ type T_Func = {
 }
 
 export const getOrderLocalStorage = (key: string = 'order'): T_Func => {
-
     return {
         list: JSON.parse(localStorage.getItem(key) as string),
         addOrders: (submittedOrders) => {
@@ -27,7 +26,7 @@ export const getOrderLocalStorage = (key: string = 'order'): T_Func => {
             
             const newOrders = currentOrders.map(currentOrder => {
                 const orderExists = newOrder.id === currentOrder.id;
-                return orderExists ? currentOrder : newOrder
+                return orderExists ? newOrder : currentOrder
             })
             localStorage.setItem(key, JSON.stringify(newOrders))
             return newOrders

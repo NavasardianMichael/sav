@@ -9,6 +9,20 @@
     @include sm-max {
         overflow-x: auto;
         width: 100%;
+        scrollbar-color: var(--tertiary-color) #fff;
+        scrollbar-width: thin;
+        margin-bottom: 2px;
+
+        &::-webkit-scrollbar {
+            height: 3px;
+            background-clip: padding-box;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            border: 2px solid var(--tertiary-color);
+            background-clip: padding-box;
+            border-radius: 9999px;
+        }
     }
     
     &.home {

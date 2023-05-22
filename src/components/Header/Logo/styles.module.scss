@@ -1,8 +1,22 @@
+@import 'assets/styles/_mixins.scss';
+
 .logo {
     height: 50%;
+    display: flex;
 
     img {
         height: 100%;
+        display: block;
+        margin: auto;
         cursor: pointer;
+
+
+        @include sm-max {
+            @media (orientation: portrait) and (hover: none) {
+                & {
+                    max-height: 90px;
+                }
+            }
+        }
     }
 }
