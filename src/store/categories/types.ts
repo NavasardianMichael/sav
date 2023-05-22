@@ -8,6 +8,7 @@ export type T_CategoriesState = {
     }
     allIds: T_Category['id'][]
     testimonialSourceIds: string[]
+    priceListSourceId: string
 }
 
 export type T_Category = {

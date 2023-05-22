@@ -5,6 +5,11 @@
     align-items: center;
     gap: .5rem;
     position: relative;
+
+    @include sm-max {
+        overflow-x: auto;
+        width: 100%;
+    }
     
     &.home {
         height: 25%;
@@ -60,10 +65,11 @@
         padding-right: 0.5rem;
         cursor: pointer;
         
-        // @include sm-max {
-        //     padding-left: .5rem;
-        //     padding-right: .5rem;
-        // }
+        @include sm-max {
+            white-space: nowrap;
+            // padding-left: .5rem;
+            // padding-right: .5rem;
+        }
 
         &.hideOnMobile {
             @include sm-max {

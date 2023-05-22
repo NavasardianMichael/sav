@@ -4,8 +4,13 @@ import { HOME_PAGE_SECTIONS } from "helpers/constants/pages";
 import { combineClassNames } from 'helpers/functions/commons';
 
 import styles from './styles.module.scss';
+import { useSelector } from 'react-redux';
+import { selectPriceListSourceId } from 'store/categories/selectors';
 
 export const LinkList: FC = () => {
+
+    const priceListSourceId = useSelector(selectPriceListSourceId)
+
     return (
         <>
             {
@@ -24,7 +29,7 @@ export const LinkList: FC = () => {
             }
             <a 
                 className={styles.link}
-                href="https://drive.google.com/uc?export=download&id=1HkGV_e_ceCwFV8dyMcl0WP0xz7y2VLJq" 
+                href={`https://drive.google.com/uc?export=download&id=${priceListSourceId}`} 
                 download
             >
                 Скачать прайс лист

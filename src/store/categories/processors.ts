@@ -5,15 +5,23 @@ export const processCategoriesData = (data: T_SheetRowResponse[]): T_CategoriesS
     let result: T_CategoriesState = {
         byId: {},
         allIds: [],
-        testimonialSourceIds: []
+        testimonialSourceIds: [],
+        priceListSourceId: ''
     }
     const [_, ...rows] = data
 
-    const [ categories, testimonialDriveIds ] = rows.reduce((acc: [T_SheetRowResponse[],T_SheetRowResponse[]], row) => {
+    const [ categories, testimonialDriveIds, priceListSourceId ] = rows.reduce((acc: [T_SheetRowResponse[],T_SheetRowResponse[], string], row) => {
+        console.log({row});
         if(row[0] == null) return acc;
-        acc[row[2] ? 0 : 1].push(row)        
+        if(row[0] === 'testimonialSourceId') {
+            acc[1].push(row)
+        } else if(row[0] === 'priceListSourceId') {
+            acc[2] = row[1]
+        } else {
+            acc[0].push(row)
+        }
         return acc
-    }, [[], []])
+    }, [[], [], ''])
 
     categories.forEach((row: T_SheetRowResponse) => {
         const processedRow = processSheetRow(row)
@@ -23,6 +31,7 @@ export const processCategoriesData = (data: T_SheetRowResponse[]): T_CategoriesS
     });
 
     result.testimonialSourceIds = testimonialDriveIds.map(row => row[1])
+    result.priceListSourceId = priceListSourceId
 
     return result
 }
