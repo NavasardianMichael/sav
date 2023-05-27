@@ -1,0 +1,54 @@
+.linkItems {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    margin-bottom: .75rem;
+
+    a {
+        color: var(--primary-color);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: .75rem;
+        transition: .3s;
+
+        @media (hover: hover) {
+            &:hover {
+                color: var(--secondary-color);
+            }
+        }
+    }
+}
+
+.iconItems {
+    display: flex;
+    gap: .75rem;
+
+    a {
+        color: var(--primary-color);
+        transition: .3s;
+        align-self: flex-start;
+
+        @media (hover: hover) {
+            &:hover {
+                color: var(--secondary-color);
+            }
+        }
+
+        &.customIconLink {
+            svg {
+                width: 28px;
+                height: 28px;
+                fill: var(--primary-color);
+                transition: .3s;
+
+                @media (hover: hover) {
+                    &:hover {
+                        fill: var(--secondary-color);
+                    }
+                }
+            }
+        }
+
+    }
+}

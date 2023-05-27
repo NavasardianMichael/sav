@@ -1,6 +1,8 @@
-import Logo from 'assets/images/logo.svg';
-import { CONTACT_ITEMS } from "helpers/constants/contacts";
 import { FC } from "react";
+
+import Logo from 'assets/images/logo.svg';
+import { Items } from 'components/Contact/Items/Main';
+
 import styles from './styles.module.css';
 
 export const Footer: FC = () => {
@@ -12,28 +14,7 @@ export const Footer: FC = () => {
                         <img src={Logo} />
                     </div>
                 </div>
-                <div className={styles.linkItems}>
-                    {
-                        CONTACT_ITEMS.withText.map(({id, title, href, Icon, prefix, text}) => {
-                            return (
-                                    <a key={id} target='_blank' title={title} href={prefix + href}>
-                                        <Icon fontSize='medium' /> {text}
-                                    </a>
-                            )
-                        })
-                    }
-                    <div className={styles.iconItems}>
-                        {
-                            CONTACT_ITEMS.onlyIcons.map(({id, title, href, Icon, prefix}) => {
-                                return (
-                                        <a key={id} target='_blank' title={title} href={prefix + href}>
-                                            <Icon fontSize='medium' />
-                                        </a>
-                                )
-                            })
-                        }
-                    </div>
-                </div>
+                <Items />
             </div>
             <div className={styles.lowerBlock}>
                 © 2023 САВ ГРУП. Все права защищены
