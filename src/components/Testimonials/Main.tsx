@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { Section } from 'components/Section/Main';
 import { HOME_PAGE_SECTIONS } from 'helpers/constants/pages';
+import { getDriveImageUrlById } from 'helpers/functions/commons';
 import { selectTestimonialSourceIds } from 'store/categories/selectors';
 
 import styles from './styles.module.scss';
@@ -20,7 +21,7 @@ export const Testimonials: FC = () => {
                     testimonialSourceIds.map(id => {
                         return (
                             <div key={id} className={styles.testimonial}>
-                                <img src={`https://drive.google.com/uc?id=${id}`} />
+                                <img src={getDriveImageUrlById(id)} alt='testimonial screenshot' />
                             </div>
                         )
                     })

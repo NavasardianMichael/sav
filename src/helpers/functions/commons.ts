@@ -16,3 +16,7 @@ export const hasObjAnyKey = (obj: {[key: string]: any}) => {
     if (obj.hasOwnProperty(key)) return true
   }
 }
+
+export const getDriveImageUrlById = (id: string) => {
+  return `https://drive.google.com/uc?id=${id}`
+}
