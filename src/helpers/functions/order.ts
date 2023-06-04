@@ -15,14 +15,12 @@ export const getOrderLocalStorage = (key: string = 'order'): T_Func => {
         addOrders: (submittedOrders) => {
             const currentOrders: T_OrderItem[] = JSON.parse(localStorage.getItem(key) as string) ?? []
             const newOrders = [...currentOrders, ...submittedOrders]
-            console.log({currentOrders, submittedOrders});
             
             localStorage.setItem(key, JSON.stringify(newOrders))
             return newOrders
         },
         editOrder: (newOrder) => {
             const currentOrders: T_OrderItem[] = JSON.parse(localStorage.getItem(key) as string)
-            console.log({newOrder});
             
             const newOrders = currentOrders.map(currentOrder => {
                 const orderExists = newOrder.id === currentOrder.id;

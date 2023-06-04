@@ -19,7 +19,7 @@ export const Categories: FC = () => {
                     const category = categories.byId[categoryId]
                     return (
                         <div id={category.id} key={category.id} className={styles.category}>
-                            <h2 className={combineClassNames(sharedStyles['h-lg'], sharedStyles['mb-0'])}>{category.name}</h2>
+                            <h1 className={combineClassNames(sharedStyles['h-lg'], sharedStyles['mb-0'])}>{category.name}</h1>
                             <SubCategories ids={category.subCategoryIds} />
                         </div>
                     )

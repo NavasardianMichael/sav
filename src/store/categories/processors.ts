@@ -11,7 +11,6 @@ export const processCategoriesData = (data: T_SheetRowResponse[]): T_CategoriesS
     const [_, ...rows] = data
 
     const [ categories, testimonialDriveIds, priceListSourceId ] = rows.reduce((acc: [T_SheetRowResponse[],T_SheetRowResponse[], string], row) => {
-        console.log({row});
         if(row[0] == null) return acc;
         if(row[0] === 'testimonialSourceId') {
             acc[1].push(row)
