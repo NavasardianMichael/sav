@@ -7,9 +7,18 @@ export const Info: FC = () => {
     return (
         <div className={styles.info}>
             <div className={styles.initialInfo}>
-                <p>С понедельника по пятницу: 09:00 - 18:00</p>
-                <p>Суббота: 09:00-13:00</p>
-                <a href='https://www.google.com/maps/place/SAV+holding/@40.2413201,44.5751578,15z/data=!4m6!3m5!1s0x406aa3d2eca95fef:0xdf89768077366d14!8m2!3d40.2413201!4d44.5751578!16s%2Fg%2F11k9s3_7lj' target='_blank'>Адрес: Котайк, Ариндж, 1-я улица, Ереван</a>
+                <p>Режим работы: пн-пт 9:00-19:00</p>
+                <a href='https://goo.gl/maps/wPq7wBzDhxo6aNPW7' target='_blank'>143033, Российская Федерация, Московская обл., г.Одинцово</a>
+                <p>
+                    ОГРН 1215000026680<br />
+                    ИНН 5032326565 КПП 503201001<br />
+                    ОКПО 47613856<br />
+                    Банковские реквизиты:<br />
+                    АО «АЛЬФА-БАНК»<br />
+                    р/с 40702810201600013893<br />
+                    к/с 30101810200000000593<br />
+                    БИК 044525593<br />
+                </p>
             </div>
             <Items />
         </div>

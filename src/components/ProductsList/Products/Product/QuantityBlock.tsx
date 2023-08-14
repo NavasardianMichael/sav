@@ -59,7 +59,7 @@ export const QuantityBlock: FC<T_Props> = ({ id, size }) => {
                     </button>
                 </div>
                 <div className={styles.application}>
-                    <button name={id} onClick={handleCountApply}>Добавить В корзину</button>
+                    <button name={id} onClick={handleCountApply}>Добавить в корзину</button>
                 </div>
             </div>
         </>

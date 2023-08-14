@@ -14,26 +14,19 @@ export const CONTACT_ITEMS = {
             Icon: EmailIcon,
             title: 'Эл. почта',
             prefix: 'mailto:',
-            href: 'sav.med@gmail.com',
-            text: 'sav.med@gmail.com'
+            href: 'savmed.orders@gmail.com',
+            text: 'savmed.orders@gmail.com'
         },
         {
             id: 2,
             Icon: CallRoundedIcon,
             title: 'Телефон',
             prefix: 'tel:',
-            href: '+79690223407',
-            text: '+7 969 022-34-07'
+            href: '+79645862757',
+            text: '+7 964 586-27-57'
         },
     ],
     onlyIcons: [
-        {
-            id: 3,
-            Icon: FacebookIcon,
-            title: 'Facebook',
-            prefix: '',
-            href: 'https://www.facebook.com/ProGoTech82'
-        },
         {
             id: 4,
             Icon: InstagramIcon,
@@ -53,7 +46,7 @@ export const CONTACT_ITEMS = {
             Icon: WhatsAppIcon,
             title: 'WhatsApp',
             prefix: '',
-            href: 'https://wa.me/+79855724547'
+            href: 'https://wa.me/+79690223407'
         },
         {
             id: 7,

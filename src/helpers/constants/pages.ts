@@ -12,7 +12,7 @@ export const HOME_PAGE_SECTIONS = {
         },
         contact: {
             id: 'contact',
-            name: 'Обратная свазь',
+            name: 'Обратная связь',
             hideOnMobile: false
         },
         testimonials:  {
